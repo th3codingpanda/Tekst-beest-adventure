@@ -4,7 +4,14 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            SlowTyping slowTyping = new SlowTyping();
+            slowTyping.SlowlyType("Text beest adventure");
+            slowTyping.SlowlyType("By Raf Woud");
+            Task.Delay(1000).Wait();
+            Console.Clear();
+            Path1 path1 = new Path1();
+
+            
         }
     }
 }
