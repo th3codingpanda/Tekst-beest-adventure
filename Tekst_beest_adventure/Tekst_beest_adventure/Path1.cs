@@ -8,22 +8,26 @@ namespace Tekst_beest_adventure
 {
     internal class Path1
     {
-        enum ErrorCode : int
-        {
-            None = 0,
-            Unknown = 1,
-            ConnectionLost = 100,
-            OutlierReading = 200,
-            PageNotFound = 404
-        }
-        public int error = (int)ErrorCode.Unknown;
-        public Path1() {
-            SlowTyping slowTyping = new SlowTyping();
-            slowTyping.SlowlyType("Write down the word thats below this");
-            slowTyping.SlowlyType("captha");
-            Enemy enemy = new Enemy(6);
-            slowTyping.SlowlyType($"Integral value of {enemy.MagicType}");
-            Console.ReadLine();
+        SlowTyping slowTyping = new SlowTyping();
+        public Path1(Stats Player) {
+            Console.Clear();
+            var rand = new Random();
+            int EnemyType = rand.Next(0, 8);
+            if (EnemyType < 7)
+            {
+                Enemy Goblin = new Enemy("Goblin", 10,50, EnemyType,false);
+                Combat combat = new Combat(Player,Goblin);
+                //Name Hp Xp Type
+
+            }
+            else {
+                Enemy Goku = new Enemy("Goku", 100,1000, EnemyType, false);
+                Combat combat = new Combat(Player, Goku);
+                //Name Hp Xp Type
+
+            }
+           
+
         }
     }
 }

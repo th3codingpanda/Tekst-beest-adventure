@@ -12,8 +12,8 @@ namespace Tekst_beest_adventure
         public string? Name;
         public string? MagicType;
         public int HP;
-        public int Mana;
         public int XP;
+        public int KarmaGain;
         enum Magic  { 
             Fire = 0,
             Water = 1,
@@ -21,12 +21,23 @@ namespace Tekst_beest_adventure
             Air = 3,
             Dark = 4,
             Light = 5,
-            Goku = 6,
-            Gambling = 777
+            WeatherForecasting = 6,
+            Goku = 7,
         }
         
-        public Enemy(int aMagicType) {
+        public Enemy(string aName, int HPAmount, int XPAmount,int aMagicType,bool IsEvil) {
+            Name = aName;
+            HP = HPAmount;
+            XP = XPAmount;
             MagicType = Enum.GetName(typeof(Magic), aMagicType);
+            if (!IsEvil)
+            {
+                KarmaGain = -100;
+            }
+            else {
+                KarmaGain = 100;
+            }
+            
         }
     }
 }
