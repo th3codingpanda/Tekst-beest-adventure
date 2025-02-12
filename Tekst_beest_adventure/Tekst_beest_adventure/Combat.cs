@@ -10,18 +10,41 @@ namespace Tekst_beest_adventure
     {
         SlowTyping slowTyping = new SlowTyping();
         bool BattleEnded;
-        public Combat(Stats Player,Enemy enemy){
-            slowTyping.SlowlyType($"A {enemy.MagicType} {enemy.Name} has appeared");
-            slowTyping.SlowlyType($"Your HP is: {Player.HP}\nYour XP is: {Player.XP}\n");
+        public Combat(Stats aPlayer,Enemy aEnemy){
+            slowTyping.SlowlyType($"A {aEnemy.MagicType} {aEnemy.Name} has appeared");
+            slowTyping.SlowlyType($"Your HP is: {aPlayer.HP}\nYour XP is: {aPlayer.XP}");
+            PlayerTurn(aPlayer,aEnemy);
+        }
+        public void PlayerTurn(Stats aPlayer, Enemy aEnemy)
+        {
             if (!BattleEnded)
             {
-                if (Player.HP <=0) {
+                if (aPlayer.HP <= 0)
+                {
                     Console.WriteLine("You lost the combat");
                     BattleEnded = true;
+                    
                 }
+                else {
+                 Console.WriteLine("Choose a move");
+                 Console.ReadLine();
+                 EnemyTurn(aPlayer, aEnemy);
+                }
+               
+            }
+        }
+        public void EnemyTurn(Stats aPlayer,Enemy aEnemy) {
+            if (aEnemy.HP <= 0)
+            {
+                Console.WriteLine("You Won the combat");
+                BattleEnded = true;
+                
+
             }
             else {
-            
+                Console.WriteLine("Enemy turn");
+                Console.WriteLine($"Enemy used {aEnemy.MagicType} attack");
+                PlayerTurn(aPlayer, aEnemy);
             }
         }
     }
