@@ -8,11 +8,7 @@ namespace Tekst_beest_adventure
         {
             string? Name;
             string? Input;
-           SlowTyping slowTyping = new SlowTyping();
-            //slowTyping.SlowlyType("Text beest adventure");
-            //slowTyping.SlowlyType("By Raf Woud");
-            Task.Delay(1000).Wait();
-            Console.Clear();
+            SlowTyping slowTyping = new SlowTyping();
             slowTyping.SlowlyType("Enter a Name");
             Name = Console.ReadLine();
             if (Name == null) {
@@ -34,12 +30,13 @@ namespace Tekst_beest_adventure
             try
             {
                 int MagicType = Int32.Parse(Input);
+                //changes input into an int if possible
                 if (MagicType >= 0 && MagicType <= 7)
                 {
-                    Stats Player = new Stats(Name, 10, 0, MagicType);
-                    slowTyping.SlowlyType($"You have chosen {Player.MagicType}");
+                    Player aPlayer = new Player(Name, 10, 0, MagicType);
+                    slowTyping.SlowlyType($"You have chosen {aPlayer.MagicType}");
                     Task.Delay(1000).Wait();
-                    Path1 path1 = new Path1(Player);
+                    Path1 path1 = new Path1(aPlayer);
                 }
                 else {
                     Console.WriteLine("Please enter a valid number");
@@ -56,6 +53,7 @@ namespace Tekst_beest_adventure
                 Task.Delay(1000).Wait();
                 Main(args);
                 return;
+                //Catches if input can not be turned into an int
             }  
         }
     }

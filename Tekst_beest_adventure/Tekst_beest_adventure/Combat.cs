@@ -10,12 +10,12 @@ namespace Tekst_beest_adventure
     {
         SlowTyping slowTyping = new SlowTyping();
         bool BattleEnded;
-        public Combat(Stats aPlayer,Enemy aEnemy){
+        public Combat(Player aPlayer,Enemy aEnemy){
             slowTyping.SlowlyType($"A {aEnemy.MagicType} {aEnemy.Name} has appeared");
-            slowTyping.SlowlyType($"Your HP is: {aPlayer.HP}\nYour XP is: {aPlayer.XP}");
+            slowTyping.SlowlyType($"Your HP is: {aPlayer.HP} out of {aPlayer.MaxHP}\nYour XP is: {aPlayer.XP}");
             PlayerTurn(aPlayer,aEnemy);
         }
-        public void PlayerTurn(Stats aPlayer, Enemy aEnemy)
+        public void PlayerTurn(Player aPlayer, Enemy aEnemy)
         {
             if (!BattleEnded)
             {
@@ -33,7 +33,7 @@ namespace Tekst_beest_adventure
                
             }
         }
-        public void EnemyTurn(Stats aPlayer,Enemy aEnemy) {
+        public void EnemyTurn(Player aPlayer,Enemy aEnemy) {
             if (aEnemy.HP <= 0)
             {
                 Console.WriteLine("You Won the combat");

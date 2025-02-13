@@ -9,20 +9,22 @@ using static Tekst_beest_adventure.Magics;
 
 namespace Tekst_beest_adventure
 {
-    internal class Stats
+    internal class Player
     {
         Magics Magics = new Magics();
         public string? Name;
         public int Karma;
+        public int MaxHP;
         public int HP;
         public int Mana;
         public int XP;
         public int Level;
         public string? MagicType;
 
-        public Stats(string aName,int HPAmount, int XPAmount, int aMagicType)
+        public Player(string aName,int HPAmount, int XPAmount, int aMagicType)
         {
             Name = aName;
+            MaxHP = HPAmount;
             HP = HPAmount;
             XP = XPAmount;
             MagicType = Enum.GetName(typeof(Magics.Magic), aMagicType);
