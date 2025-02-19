@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tekst_beest_adventure
 {
-    internal class Magics
+    public class Magics
     {
         public enum Magic
         {

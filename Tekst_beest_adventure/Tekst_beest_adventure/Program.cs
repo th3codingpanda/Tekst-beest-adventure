@@ -6,9 +6,13 @@ namespace Tekst_beest_adventure
     {
         static void Main(string[] args)
         {
+
+
+
             string? Name;
             string? Input;
             SlowTyping slowTyping = new SlowTyping();
+            Console.Clear();
             slowTyping.SlowlyType("Enter a Name");
             Name = Console.ReadLine();
             if (Name == null) {
@@ -33,7 +37,7 @@ namespace Tekst_beest_adventure
                 //changes input into an int if possible
                 if (MagicType >= 0 && MagicType <= 7)
                 {
-                    Player aPlayer = new Player(Name, 10, 0, MagicType);
+                    Player aPlayer = new Player(Name, 20, 0, MagicType);
                     slowTyping.SlowlyType($"You have chosen {aPlayer.MagicType}");
                     Task.Delay(1000).Wait();
                     Path1 path1 = new Path1(aPlayer);
@@ -47,8 +51,9 @@ namespace Tekst_beest_adventure
 
 
             }
-            catch (FormatException)
+            catch (FormatException e)
             {
+                Console.WriteLine(e.Message);
                 Console.WriteLine("Please enter a valid number");
                 Task.Delay(1000).Wait();
                 Main(args);

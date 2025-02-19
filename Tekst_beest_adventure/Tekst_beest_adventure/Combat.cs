@@ -12,7 +12,7 @@ namespace Tekst_beest_adventure
         bool BattleEnded;
         public Combat(Player aPlayer,Enemy aEnemy){
             slowTyping.SlowlyType($"A {aEnemy.MagicType} {aEnemy.Name} has appeared");
-            slowTyping.SlowlyType($"Your HP is: {aPlayer.HP} out of {aPlayer.MaxHP}\nYour XP is: {aPlayer.XP}");
+            Task.Delay( 1000 ).Wait();
             PlayerTurn(aPlayer,aEnemy);
         }
         public void PlayerTurn(Player aPlayer, Enemy aEnemy)
@@ -26,9 +26,17 @@ namespace Tekst_beest_adventure
                     
                 }
                 else {
-                 Console.WriteLine("Choose a move");
-                 Console.ReadLine();
-                 EnemyTurn(aPlayer, aEnemy);
+                    Console.Clear();
+                    slowTyping.SlowlyType($"Your HP is: {aPlayer.HP} out of {aPlayer.MaxHP}\nYour XP is: {aPlayer.XP}\nEnemy HP is: {aEnemy.HP}");
+                    slowTyping.SlowlyType("Player turn");
+                    slowTyping.SlowlyType("Choose a move");
+                    for (int i = 0; i < aPlayer.moves.Count; i++) {
+                        slowTyping.SlightlyFaster($"{aPlayer.moves[0]}");
+                    }
+                    Console.ReadLine();
+
+                    Task.Delay(1000).Wait();
+                    EnemyTurn(aPlayer, aEnemy);
                 }
                
             }
@@ -36,14 +44,16 @@ namespace Tekst_beest_adventure
         public void EnemyTurn(Player aPlayer,Enemy aEnemy) {
             if (aEnemy.HP <= 0)
             {
-                Console.WriteLine("You Won the combat");
+                slowTyping.SlowlyType("You Won the combat");
                 BattleEnded = true;
                 
 
             }
             else {
-                Console.WriteLine("Enemy turn");
-                Console.WriteLine($"Enemy used {aEnemy.MagicType} attack");
+                Console.Clear();
+                slowTyping.SlowlyType("Enemy turn");
+                slowTyping.SlowlyType($"Enemy used {aEnemy.MagicType} attack");
+                Task.Delay(1000).Wait();
                 PlayerTurn(aPlayer, aEnemy);
             }
         }

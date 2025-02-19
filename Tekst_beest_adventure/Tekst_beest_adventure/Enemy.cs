@@ -9,14 +9,11 @@ namespace Tekst_beest_adventure
 {
     public class Enemy
     {
-        Magics Magics = new Magics();
         public string? Name;
         public string? MagicType;
         public int HP;
         public int XP;
         public int KarmaGain;
-
-        
         public Enemy(string aName, int HPAmount, int XPAmount,int aMagicType,bool IsEvil) {
             Name = aName;
             HP = HPAmount;

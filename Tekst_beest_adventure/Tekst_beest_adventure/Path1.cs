@@ -15,13 +15,13 @@ namespace Tekst_beest_adventure
             int EnemyType = rand.Next(0, 8);
             if (EnemyType < 7)
             {
-                Enemy Goblin = new Enemy("Goblin", 10,50, EnemyType,true);
+                Enemy Goblin = new Enemy("Goblin", 10,450, EnemyType,true);
                 Combat combat = new Combat(aPlayer,Goblin);
                 //Name Hp Xp Type
 
             }
             else {
-                Enemy Goku = new Enemy("Son Goku", 100,1000, EnemyType, false);
+                Enemy Goku = new Enemy("Son Goku", 10000,1000, EnemyType, false);
                 Combat combat = new Combat(aPlayer, Goku);
                 //Name Hp Xp Type
 
