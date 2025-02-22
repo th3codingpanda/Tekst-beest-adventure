@@ -32,6 +32,8 @@ namespace Tekst_beest_adventure
             Karma = 0;
             Mana = 20;
             LastVisitedInn = 0;
+            Move move1 = new Move(MagicType, 0, 3, $"Weak {MagicType} Attack");
+            moves.Add(move1);
             
         }
     }

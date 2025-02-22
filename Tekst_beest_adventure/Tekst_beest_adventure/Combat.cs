@@ -31,7 +31,7 @@ namespace Tekst_beest_adventure
                     slowTyping.SlowlyType("Player turn");
                     slowTyping.SlowlyType("Choose a move");
                     for (int i = 0; i < aPlayer.moves.Count; i++) {
-                        slowTyping.SlightlyFaster($"{aPlayer.moves[0]}");
+                        slowTyping.SlightlyFaster($"{i+1}.{aPlayer.moves[0].Name}");
                     }
                     Console.ReadLine();
 
