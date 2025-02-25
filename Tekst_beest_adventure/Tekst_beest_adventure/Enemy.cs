@@ -10,15 +10,15 @@ namespace Tekst_beest_adventure
     public class Enemy
     {
         public string? Name;
-        public string? MagicType;
+        public Magics.Magic MagicType;
         public int HP;
         public int XP;
         public int KarmaGain;
-        public Enemy(string aName, int HPAmount, int XPAmount,int aMagicType,bool IsEvil) {
+        public Enemy(string aName, int HPAmount, int XPAmount,Magics.Magic aMagicType,bool IsEvil) {
             Name = aName;
             HP = HPAmount;
             XP = XPAmount;
-            MagicType = Enum.GetName(typeof(Magics.Magic), aMagicType);
+            MagicType = aMagicType;
             if (!IsEvil)
             {
                 KarmaGain = -100;
