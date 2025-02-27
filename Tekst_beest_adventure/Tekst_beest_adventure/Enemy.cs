@@ -15,13 +15,15 @@ namespace Tekst_beest_adventure
         public int XP;
         public int KarmaGain;
         public int Damage;
+        public bool Boss;
 
-        public Enemy(string aName, int HPAmount, int XPAmount,Magics.Magic aMagicType,bool IsEvil , int DamageAmount) {
+        public Enemy(string aName, int HPAmount, int XPAmount,Magics.Magic aMagicType,bool IsEvil , int DamageAmount ,bool IsBoss) {
             Name = aName;
             HP = HPAmount;
             XP = XPAmount;
             MagicType = aMagicType;
             Damage = DamageAmount;
+            Boss = IsBoss;
             if (!IsEvil)
             {
                 KarmaGain = -100;
