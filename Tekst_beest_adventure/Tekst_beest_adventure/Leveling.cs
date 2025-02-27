@@ -17,7 +17,7 @@ namespace Tekst_beest_adventure
                 aPlayer.Level += 1;
                 aPlayer.MaxHP += 10;
                 aPlayer.HP = aPlayer.MaxHP;
-                aPlayer.Mana = 20;
+
                 
                 slowTyping.SlowlyType($"You have leveled up to level: {aPlayer.Level}");
                 aPlayer = CheckXP(aPlayer);

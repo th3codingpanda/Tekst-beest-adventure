@@ -15,7 +15,6 @@ namespace Tekst_beest_adventure
         public int Karma;
         public int MaxHP;
         public int HP;
-        public int Mana;
         public int XP;
         public int Level;
         public Magic MagicType;
@@ -30,7 +29,6 @@ namespace Tekst_beest_adventure
             MagicType = (Magic)aMagicType;
             Level = 1;
             Karma = 0;
-            Mana = 20;
             LastVisitedInn = 0;
             Move move1 = new Move(MagicType, 0, 3, $"Weak {MagicType} Attack");
             moves.Add(move1);

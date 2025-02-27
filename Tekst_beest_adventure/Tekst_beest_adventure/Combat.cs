@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace Tekst_beest_adventure
 {
-    internal class Combat
+     class Combat
     {
         SlowTyping slowTyping = new SlowTyping();
         bool BattleEnded;
         public string? Input;
+
         public Combat(Player aPlayer,Enemy aEnemy){
             slowTyping.SlowlyType($"A {aEnemy.MagicType} {aEnemy.Name} has appeared");
             Task.Delay( 1000 ).Wait();
@@ -48,7 +49,7 @@ namespace Tekst_beest_adventure
                        Damage damage = new Damage();
                         if (Move > 0 && Move <= aPlayer.moves.Count)
                         {
-                            aEnemy = damage.CalculateDamage(aPlayer.moves[Move-1].Damage, aEnemy);
+                            damage.CalculatePlayerDamage(aPlayer.moves[Move-1].Damage, aEnemy);
                         }
                         else
                         {
@@ -84,8 +85,11 @@ namespace Tekst_beest_adventure
                 Console.Clear();
                 slowTyping.SlowlyType("Enemy turn");
                 slowTyping.SlowlyType($"Enemy used {aEnemy.MagicType} attack");
+                Damage damage = new Damage();
+                damage.CalculateEnemyDamage(aEnemy.Damage, aPlayer);
                 Task.Delay(1000).Wait();
                 PlayerTurn(aPlayer, aEnemy);
+                
             }
         }
     }

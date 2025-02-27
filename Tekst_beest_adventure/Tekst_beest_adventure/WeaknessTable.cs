@@ -8,21 +8,23 @@ using System.Threading.Tasks;
 
 namespace Tekst_beest_adventure
 {
-    internal class WeaknessTable
+ enum Weakness{
+        Weak = 50,
+        Normal = 100,
+        Strong = 150,
+        Goku = 400,
+        }
+    public class WeaknessTable
     {
-        public static List<List<float>> Table = new List<List<float>>()
+
+        private static List<List<Weakness>> Table = new List<List<Weakness>>()
         {
+
             //" Fire = 0 Water = 1 Earth = 2 Air = 3 Dark = 4 Light = 5 WeatherForecasting = 6 Goku = 7"
-            {new List<float>{0.5f, 0.5f,2f,2f, 0.5f, 0.5f, 2f, 0.5f } },
-            {new List<float>{2f , 0.5f,2f, 0.5f, 0.5f, 0.5f, 2f, 0.5f } },
-            {new List<float>{2f, 0.5f, 0.5f, 2f, 0.5f, 0.5f, 2f ,0.5f }  },
-            {new List<float>{0.5f, 2f , 0.5f, 2f,0.5f, 0.5f, 2f, 0.5f } },
-            {new List<float>{2f, 2f, 2f ,2f , 0.5f, 0.5f, 2f ,0.5f} },
-            {new List<float>{2f,2f ,2f ,2f , 0.5f, 0.5f, 2f,0.5f} },
-            {new List<float>{ 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, } },
-            {new List<float>{4f,4f ,4f ,4f ,4f ,4f ,0.5f } },
+            {new List<Weakness>{Weakness.Normal, Weakness.Weak , Weakness.Strong , Weakness.Strong ,Weakness.Normal , Weakness.Normal , Weakness.Goku , Weakness.Weak } },
+            {new List<Weakness>{Weakness.Strong, Weakness.Normal , Weakness.Strong , Weakness.Strong ,Weakness.Normal , Weakness.Normal , Weakness.Goku , Weakness.Weak } },
         };
 
-        public WeaknessTable() { }
+        public void Returnweakness() { }
     }
 }
