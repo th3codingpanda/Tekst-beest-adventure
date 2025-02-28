@@ -77,6 +77,11 @@ namespace Tekst_beest_adventure
             if (aEnemy.HP <= 0)
             {
                 slowTyping.SlowlyType("You Won the combat");
+                slowTyping.SlowlyType($"Xp gotten: {aEnemy.XP}");
+                aPlayer.XP += aEnemy.XP;
+                Task.Delay(500).Wait();
+                Leveling leveling = new Leveling();
+                leveling.CheckXP(aPlayer);
                 BattleEnded = true;
                 
 
