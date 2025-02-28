@@ -7,8 +7,6 @@ namespace Tekst_beest_adventure
     {
         static void Main(string[] args)
         {
-            WeaknessTable table = new WeaknessTable();
-            table.Returnweakness(1,3);
             Player aPlayer = new Player("Raf", 20, 0, 7);
             Path1 path1 = new Path1(aPlayer);
             

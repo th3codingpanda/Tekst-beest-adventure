@@ -49,7 +49,7 @@ namespace Tekst_beest_adventure
                        Damage damage = new Damage();
                         if (Move > 0 && Move <= aPlayer.moves.Count)
                         {
-                            damage.CalculatePlayerDamage(aPlayer.moves[Move-1].Damage, aEnemy);
+                            damage.CalculatePlayerDamage(aPlayer.moves[Move-1].Damage,aPlayer, aEnemy);
                         }
                         else
                         {
@@ -86,7 +86,7 @@ namespace Tekst_beest_adventure
                 slowTyping.SlowlyType("Enemy turn");
                 slowTyping.SlowlyType($"Enemy used {aEnemy.MagicType} attack");
                 Damage damage = new Damage();
-                damage.CalculateEnemyDamage(aEnemy.Damage, aPlayer);
+                damage.CalculateEnemyDamage(aEnemy.Damage, aPlayer, aEnemy);
                 Task.Delay(1000).Wait();
                 PlayerTurn(aPlayer, aEnemy);
                 

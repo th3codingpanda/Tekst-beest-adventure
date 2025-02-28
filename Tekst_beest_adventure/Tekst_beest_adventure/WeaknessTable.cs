@@ -8,15 +8,16 @@ using System.Threading.Tasks;
 
 namespace Tekst_beest_adventure
 {
- enum Weakness{
-        Weak = 50,
-        Normal = 100,
-        Strong = 150,
-        Goku = 400,
-        }
+
     public class WeaknessTable
     {
-
+        enum Weakness
+        {
+            Weak = 50,
+            Normal = 100,
+            Strong = 150,
+            Goku = 400,
+        }
 
         private static List<List<Weakness>> Table = new List<List<Weakness>>()
         {
@@ -33,10 +34,10 @@ namespace Tekst_beest_adventure
             {new List<Weakness>{Weakness.Goku, Weakness.Goku , Weakness.Goku , Weakness.Goku ,Weakness.Goku , Weakness.Goku , Weakness.Goku , Weakness.Goku } },
         };
 
-        public float Returnweakness(int AttackingMagic,int DefendingMagic) {
+        public float ReturnWeakness(Magics.Magic AttackingMagic,Magics.Magic DefendingMagic) {
             SlowTyping slowTyping = new SlowTyping();
-            float MultiplierWeakness = (float)Table[AttackingMagic][DefendingMagic] /100;
-            Console.WriteLine(MultiplierWeakness);
+            float MultiplierWeakness = (float)Table[(int)AttackingMagic][(int)DefendingMagic] /100;
+
             if (MultiplierWeakness <= 0.5f) {
                 slowTyping.SlowlyType("Not very effective");
             }
@@ -49,7 +50,7 @@ namespace Tekst_beest_adventure
             {
                 slowTyping.SlowlyType("Very effective");
             }
-
+            Task.Delay(500).Wait();
             return MultiplierWeakness;
         }
     }
