@@ -9,7 +9,6 @@ namespace Tekst_beest_adventure
     internal class Weather
     {
         //weather will boost certain magics
-       
-       
+       //weather forecasting will never get a boost but he can see what weather it will be
     }
 }

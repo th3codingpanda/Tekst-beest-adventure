@@ -24,12 +24,12 @@ namespace Tekst_beest_adventure
             MagicType = aMagicType;
             Damage = DamageAmount;
             Boss = IsBoss;
-            if (!IsEvil)
+            if (IsEvil)
             {
-                KarmaGain = -100;
+                KarmaGain = 100;
             }
             else {
-                KarmaGain = 100;
+                KarmaGain = -100;
             }
             
         }

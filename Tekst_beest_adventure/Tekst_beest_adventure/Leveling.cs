@@ -10,7 +10,7 @@ namespace Tekst_beest_adventure
     {
 
         SlowTyping slowTyping = new SlowTyping();
-        public Player CheckXP(Player aPlayer) {
+        public void CheckXP(Player aPlayer) {
             if (aPlayer.XP >= 1000 * (1 + 0.2f * aPlayer.Level))
             {
                 aPlayer.XP -= 1000 * aPlayer.Level;
@@ -20,13 +20,15 @@ namespace Tekst_beest_adventure
 
                 
                 slowTyping.SlowlyType($"You have leveled up to level: {aPlayer.Level}");
-                aPlayer = CheckXP(aPlayer);
-                return aPlayer;
+                CheckXP(aPlayer);
+                return;
+                
             }
             else {
                 slowTyping.SlowlyType($"You need {1000 * (1 + 0.2f  * aPlayer.Level) - aPlayer.XP} XP to level up");
                 Task.Delay(500).Wait();
-                return aPlayer;
+
+                
             };
             
         }

@@ -10,14 +10,14 @@ namespace Tekst_beest_adventure
     {
         public enum Magic
         {
-            Fire = 0,
-            Water = 1,
-            Earth = 2,
-            Air = 3,
-            Dark = 4,
-            Light = 5,
-            WeatherForecasting = 6,
-            Goku = 7,
+            FIRE = 0,
+            WATER = 1,
+            EARTH = 2,
+            AIR = 3,
+            DARK = 4,
+            LIGHT = 5,
+            WEATHERFORECASTING = 6,
+            GOKU = 7,
         }
     }
 }

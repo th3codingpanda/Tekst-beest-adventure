@@ -31,7 +31,7 @@ namespace Tekst_beest_adventure
             TheDamage = (int)Math.Round(TheDamage * weakness.ReturnWeakness(aEnemy.MagicType, aPlayer.MagicType) * DamageRandom );
             aPlayer.HP -= TheDamage;
             slowTyping.SlowlyType($"{aPlayer.Name} Took {TheDamage}");
-            slowTyping.SlowlyType($"Enemy Hp is: {aPlayer.HP}");
+            slowTyping.SlowlyType($"{aPlayer.Name}'s Hp is: {aPlayer.HP}");
         }
     }
 }

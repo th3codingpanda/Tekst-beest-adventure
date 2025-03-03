@@ -17,6 +17,7 @@ namespace Tekst_beest_adventure
             Normal = 100,
             Strong = 150,
             Goku = 400,
+            NEVER_LOSE = 40000000,
         }
 
         private static List<List<Weakness>> Table = new List<List<Weakness>>()
@@ -31,7 +32,7 @@ namespace Tekst_beest_adventure
             {new List<Weakness>{Weakness.Normal, Weakness.Normal , Weakness.Normal , Weakness.Normal ,Weakness.Weak, Weakness.Strong , Weakness.Goku , Weakness.Weak } },
             {new List<Weakness>{Weakness.Normal, Weakness.Normal , Weakness.Normal , Weakness.Normal ,Weakness.Strong , Weakness.Weak , Weakness.Goku , Weakness.Weak } },
             {new List<Weakness>{Weakness.Weak, Weakness.Weak , Weakness.Weak , Weakness.Weak ,Weakness.Weak , Weakness.Weak , Weakness.Goku , Weakness.Weak } },
-            {new List<Weakness>{Weakness.Goku, Weakness.Goku , Weakness.Goku , Weakness.Goku ,Weakness.Goku , Weakness.Goku , Weakness.Goku , Weakness.Goku } },
+            {new List<Weakness>{Weakness.Goku, Weakness.Goku , Weakness.Goku , Weakness.Goku ,Weakness.Goku , Weakness.Goku , Weakness.NEVER_LOSE , Weakness.Goku } },
         };
 
         public float ReturnWeakness(Magics.Magic AttackingMagic,Magics.Magic DefendingMagic) {

@@ -25,9 +25,15 @@ namespace Tekst_beest_adventure
             {
                 if (aPlayer.HP <= 0)
                 {
-                    Console.WriteLine("You lost the combat");
+                    slowTyping.SlightlyFaster("You lost the combat");
+                    slowTyping.SlightlyFaster("Going Back to last checkpoint");
+                    Task.Delay( 1000 ).Wait();
                     BattleEnded = true;
-                    
+                    aPlayer.HP = aPlayer.MaxHP;
+                    aPlayer.LastBattleWon = false;
+                    return;
+
+
                 }
                 else {
                     Console.Clear();
@@ -76,13 +82,15 @@ namespace Tekst_beest_adventure
         public void EnemyTurn(Player aPlayer,Enemy aEnemy) {
             if (aEnemy.HP <= 0)
             {
-                slowTyping.SlowlyType("You Won the combat");
-                slowTyping.SlowlyType($"Xp gotten: {aEnemy.XP}");
+                slowTyping.SlightlyFaster("You Won the combat");
+                slowTyping.SlightlyFaster($"Xp gotten: {aEnemy.XP}");
                 aPlayer.XP += aEnemy.XP;
                 Task.Delay(500).Wait();
                 Leveling leveling = new Leveling();
                 leveling.CheckXP(aPlayer);
                 BattleEnded = true;
+                aPlayer.LastBattleWon = true;
+                return;
                 
 
             }
