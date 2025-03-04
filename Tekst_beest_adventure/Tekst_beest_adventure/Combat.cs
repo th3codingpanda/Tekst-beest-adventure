@@ -31,6 +31,7 @@ namespace Tekst_beest_adventure
                     BattleEnded = true;
                     aPlayer.HP = aPlayer.MaxHP;
                     aPlayer.LastBattleWon = false;
+                    aPlayer.Karma += aEnemy.KarmaGain;
                     return;
 
 

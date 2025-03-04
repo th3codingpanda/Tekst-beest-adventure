@@ -21,6 +21,9 @@ namespace Tekst_beest_adventure
                 
                 slowTyping.SlowlyType($"You have leveled up to level: {aPlayer.Level}");
                 CheckXP(aPlayer);
+                for (int i = 0; i < aPlayer.moves.Count; i++) {
+                    aPlayer.moves[i].Damage += 2;
+                }
                 return;
                 
             }

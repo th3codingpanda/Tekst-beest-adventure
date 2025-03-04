@@ -31,10 +31,10 @@ namespace Tekst_beest_adventure
                     Combat combat = new Combat(aPlayer, Goku);
                     
                 }
-
-
-
             }
+            slowTyping.SlightlyFaster($"You have beat the tutorial!");
+            slowTyping.SlightlyFaster("You have been healed");
+            aPlayer.HP = aPlayer.MaxHP;
         }
     }
 }
