@@ -1,6 +1,5 @@
 ﻿using System.Dynamic;
 using System.Xml.Linq;
-
 namespace Tekst_beest_adventure
 {
     internal class Program
@@ -77,6 +76,8 @@ namespace Tekst_beest_adventure
             //potion drop that can either be really good or really bad unless ur goku then its always good
             //if u reach the end with weatherforecasting then u get hired by rtl and don't have to fight the final boss because he dies of the weather
             //make more than 1 paths to weatherforecasting jail
+            //perfect cell boss
+
             
             }
         }

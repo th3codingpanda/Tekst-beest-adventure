@@ -23,6 +23,7 @@ namespace Tekst_beest_adventure
         public int CurrentPath;
         public Statoos Status;
         public bool LastBattleWon;
+        public int Coins;
         
         public Player(string aName,int HPAmount, int XPAmount, int aMagicType)
         {
@@ -37,6 +38,7 @@ namespace Tekst_beest_adventure
             CurrentPath = 0;
             Move move1 = new Move(MagicType, 0, 3, $"Weak {MagicType} Attack");
             moves.Add(move1);
+            Coins = 0;
             
         }
     }
