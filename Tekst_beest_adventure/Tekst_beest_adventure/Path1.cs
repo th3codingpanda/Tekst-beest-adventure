@@ -12,10 +12,6 @@ namespace Tekst_beest_adventure
         SlowTyping slowTyping = new SlowTyping();
         public Path1(Player aPlayer)
         {
-            Item Gun = new Item("Gun");
-            aPlayer.RemoveItem("Gun",3);
-            aPlayer.ShowItems();
-            Task.Delay(1000).Wait();
             while (aPlayer.LastBattleWon == false)
             {
                 Console.Clear();

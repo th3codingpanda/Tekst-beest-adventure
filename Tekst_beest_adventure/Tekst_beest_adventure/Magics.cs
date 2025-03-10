@@ -18,6 +18,7 @@ namespace Tekst_beest_adventure
             LIGHT = 5,
             WEATHERFORECASTING = 6,
             GOKU = 7,
+            NEUTRAL = 8,
         }
     }
 }

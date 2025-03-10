@@ -56,7 +56,7 @@ namespace Tekst_beest_adventure
                        Damage damage = new Damage();
                         if (Move > 0 && Move <= aPlayer.moves.Count)
                         {
-                            damage.CalculatePlayerDamage(aPlayer.moves[Move-1].Damage,aPlayer, aEnemy);
+                            damage.CalculatePlayerDamage(aPlayer.moves[Move-1],aPlayer, aEnemy);
                         }
                         else
                         {

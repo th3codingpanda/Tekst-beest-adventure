@@ -36,8 +36,10 @@ namespace Tekst_beest_adventure
             Level = 1;
             Karma = 0;
             CurrentPath = 0;
-            Move move1 = new Move(MagicType, 0, 3, $"Weak {MagicType} Attack");
+            Move move1 = new Move(Magic.NEUTRAL, 0, 3, $"Tackle");
+            Move move2 = new Move(MagicType, 0, 3, $"Weak {MagicType} Attack");
             moves.Add(move1);
+            moves.Add(move2);
             Coins = 0;
         }
 
@@ -51,6 +53,10 @@ namespace Tekst_beest_adventure
         }
         public List<Item> ShowItems() {
         return inv.InventoryCheck();
+        }
+        public bool SearchItems(string aItem) 
+        {
+            return inv.SpecificCheck(aItem);
         }
 
     }

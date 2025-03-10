@@ -13,6 +13,7 @@ namespace Tekst_beest_adventure
         public int RequiredLevel;
         public int Damage;
         public string? Name;
+        
         public Move(Magics.Magic aMagicType, int TheRequiredLevel,int DamageAmount, string? aName)
         {
             MagicType = aMagicType;

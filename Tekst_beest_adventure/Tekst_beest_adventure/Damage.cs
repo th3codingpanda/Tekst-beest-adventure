@@ -9,14 +9,15 @@ namespace Tekst_beest_adventure
     internal class Damage
     {
         WeaknessTable weakness = new WeaknessTable();
-        public void CalculatePlayerDamage(int TheDamage,Player aPlayer ,Enemy aEnemy)
+        public void CalculatePlayerDamage(Move aMove,Player aPlayer ,Enemy aEnemy)
         {
+            int TheDamage = aMove.Damage;
             Console.Clear();
             SlowTyping slowTyping = new SlowTyping();
             var rand = new Random();
             float DamageRandom = rand.Next(60, 150);
             DamageRandom = DamageRandom / 100;
-            TheDamage = (int)Math.Round(TheDamage * weakness.ReturnWeakness(aPlayer.MagicType, aEnemy.MagicType) * DamageRandom );
+            TheDamage = (int)Math.Round(TheDamage * weakness.ReturnWeakness(aMove.MagicType, aEnemy.MagicType) * DamageRandom );
             aEnemy.HP -= TheDamage;
             slowTyping.SlowlyType($"{aEnemy.Name} Took {TheDamage}");
             slowTyping.SlowlyType($"Enemy Hp is: {aEnemy.HP}");

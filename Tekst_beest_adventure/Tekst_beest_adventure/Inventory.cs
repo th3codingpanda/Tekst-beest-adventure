@@ -45,5 +45,15 @@ namespace Tekst_beest_adventure
             }
             return PlayerInventory;
         }
+        public bool SpecificCheck(string aItem) {
+
+            foreach (Item PlayerItems in PlayerInventory)
+            {
+                if (PlayerItems.Name == aItem) {
+                return true;
+                }
+            }
+                return false;
+        }
     }
 }
