@@ -24,7 +24,7 @@ namespace Tekst_beest_adventure
         public Statoos Status;
         public bool LastBattleWon;
         public int Coins;
-        
+        private Inventory inv = new Inventory();
         public Player(string aName,int HPAmount, int XPAmount, int aMagicType)
         {
 
@@ -39,7 +39,19 @@ namespace Tekst_beest_adventure
             Move move1 = new Move(MagicType, 0, 3, $"Weak {MagicType} Attack");
             moves.Add(move1);
             Coins = 0;
-            
         }
+
+        public void AddItem(Item aItem)
+        {
+            inv.InventoryAdd(aItem);
+        }
+        public void RemoveItem(string aItem, int aAmount)
+        {
+            inv.InventoryRemove(aItem,aAmount);
+        }
+        public List<Item> ShowItems() {
+        return inv.InventoryCheck();
+        }
+
     }
 }

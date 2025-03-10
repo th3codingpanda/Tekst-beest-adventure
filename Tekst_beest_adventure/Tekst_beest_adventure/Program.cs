@@ -6,13 +6,20 @@ namespace Tekst_beest_adventure
     {
         
         static void Main(string[] args)
-        {
-
-            /*
+        {    
             Player aPlayer = new Player("Raf", 20, 0, 7);
+            Item Gun = new Item("Gun");
+            aPlayer.AddItem(Gun);
+            aPlayer.AddItem(Gun);
+            aPlayer.AddItem(Gun);
+            aPlayer.ShowItems();
+            Task.Delay(1000).Wait();
             Path1 path1 = new Path1(aPlayer);
-            */
-            
+
+
+
+            Task.Delay(10000).Wait();
+            /*
             Player aPlayer;
                 Console.WriteLine("Hello, world\r\nProgrammed to work and not to feel\r\nNot even sure that this is real\r\nHello, world\r\nFind my voice\r\nAlthough, it sounds like bits and bytes\r\nMy circuitry is filled with mites\r\nHello, world\r\nOh, will I find a love\r\nOr a power plug?\r\nOh, digitally isolated\r\nOh, creator, please don't leave me waiting\r\nHello, world\r\nProgrammed to work and not to feel\r\nNot even sure that this is real\r\nHello, world");
                 string? Name;
@@ -77,8 +84,7 @@ namespace Tekst_beest_adventure
             //if u reach the end with weatherforecasting then u get hired by rtl and don't have to fight the final boss because he dies of the weather
             //make more than 1 paths to weatherforecasting jail
             //perfect cell boss
-
-            
+            */
             }
         }
     }
