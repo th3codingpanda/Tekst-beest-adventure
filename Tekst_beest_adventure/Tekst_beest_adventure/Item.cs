@@ -8,8 +8,10 @@ namespace Tekst_beest_adventure
 {
     public class Item
     {
+        public enum TheNames {
 
-        public string Name;
+        };
+        TheNames Name { get; set; }
         public int Amount;
         public Item(string aName)
         {
