@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace Tekst_beest_adventure
 {
-    internal class Inventory
+
+    public class Inventory
     {
+
         private List<Item> PlayerInventory = new List<Item>();
+
         public void InventoryAdd(Item item)
         {
             bool HasItem = false;
@@ -28,7 +31,7 @@ namespace Tekst_beest_adventure
         public void InventoryRemove(string item, int amount)
         {
             for (int i = 0; i < PlayerInventory.Count; i++)
-                if (PlayerInventory[i].Name  == item && amount != 0)
+                if (PlayerInventory[i].Name.ToString() == item && amount != 0)
                 {
                     PlayerInventory[i].Amount -= amount;
                     if (PlayerInventory[i].Amount <= 0)
@@ -49,11 +52,12 @@ namespace Tekst_beest_adventure
 
             foreach (Item PlayerItems in PlayerInventory)
             {
-                if (PlayerItems.Name == aItem) {
+                if (PlayerItems.Name.ToString() == aItem) {
                 return true;
                 }
             }
                 return false;
         }
+
     }
 }

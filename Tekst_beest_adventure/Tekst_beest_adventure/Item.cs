@@ -9,13 +9,13 @@ namespace Tekst_beest_adventure
     public class Item
     {
         public enum TheNames {
-
+        Gun = 0,
         };
-        TheNames Name { get; set; }
+        public TheNames Name { get; set; }
         public int Amount;
         public Item(string aName)
         {
-            Name = aName;
+            Name = (TheNames)Enum.Parse(typeof(TheNames), aName);
             Amount = 1;
         }
     }

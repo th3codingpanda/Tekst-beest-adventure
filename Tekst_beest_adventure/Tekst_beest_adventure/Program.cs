@@ -8,7 +8,15 @@ namespace Tekst_beest_adventure
         
         static void Main(string[] args)
         {    
-            Player aPlayer = new Player("Raf", 20, 0, 7);
+
+            Player aPlayer = new Player("Raf", 20, 0, 7); 
+            Item Gun = new Item("Gun");
+            aPlayer.AddItem(Gun);
+            aPlayer.AddItem(Gun);
+            aPlayer.AddItem(Gun);
+            Console.WriteLine(aPlayer.SearchItems("Gun"));
+            aPlayer.ShowItems();
+            Task.Delay(1000).Wait();
             Path1 path1 = new Path1(aPlayer);
             /*
             Player aPlayer;
@@ -79,11 +87,5 @@ namespace Tekst_beest_adventure
             }
         }
     }
-//Item Gun = new Item("Gun");
-//aPlayer.AddItem(Gun);
-//aPlayer.AddItem(Gun);
-//aPlayer.AddItem(Gun);
-//Console.WriteLine(aPlayer.SearchItems("Gun"));
-//aPlayer.ShowItems();
-//Task.Delay(1000).Wait();
+
 
