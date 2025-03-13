@@ -28,10 +28,10 @@ namespace Tekst_beest_adventure
                 PlayerInventory.Add(item);
             }
         }
-        public void InventoryRemove(string item, int amount)
+        public void InventoryRemove(ItemList.TheItemList aItem, int amount)
         {
             for (int i = 0; i < PlayerInventory.Count; i++)
-                if (PlayerInventory[i].Name.ToString() == item && amount != 0)
+                if (PlayerInventory[i].Name.ToString() == aItem.ToString() && amount != 0)
                 {
                     PlayerInventory[i].Amount -= amount;
                     if (PlayerInventory[i].Amount <= 0)
@@ -48,11 +48,11 @@ namespace Tekst_beest_adventure
             }
             return PlayerInventory;
         }
-        public bool SpecificCheck(string aItem) {
+        public bool SpecificCheck(ItemList.TheItemList aItem) {
 
             foreach (Item PlayerItems in PlayerInventory)
             {
-                if (PlayerItems.Name.ToString() == aItem) {
+                if (PlayerItems.Name.ToString() == aItem.ToString()) {
                 return true;
                 }
             }

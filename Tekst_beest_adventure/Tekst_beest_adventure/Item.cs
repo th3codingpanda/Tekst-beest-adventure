@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace Tekst_beest_adventure
 {
+
     public class Item
     {
-        public enum TheNames {
-        Gun = 0,
-        };
-        public TheNames Name { get; set; }
+
+        public ItemList.TheItemList Name;
         public int Amount;
-        public Item(string aName)
+        public Item(ItemList.TheItemList aName)
         {
-            Name = (TheNames)Enum.Parse(typeof(TheNames), aName);
+            Name = aName;
             Amount = 1;
         }
     }
