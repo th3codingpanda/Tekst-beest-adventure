@@ -16,18 +16,23 @@ namespace Tekst_beest_adventure
             {
                 Console.Clear();
                 var rand = new Random();
-                int EnemyType = rand.Next(0, 8);
-                if (EnemyType < 7)
+                Magic EnemyType =(Magic)rand.Next(0, 8);
+                if (EnemyType != Magic.GOKU)
                 {
                     //Name Hp Xp Type evil Damage BossStatus
-                    Enemy Goblin = new Enemy("Goblin", 10, 450, (Magic)EnemyType, true, 2, false);
+                    Enemy Goblin = new Enemy("Goblin", 10, 450,EnemyType, true, 2, false);
+                    Move Attack = new Move(EnemyType, 0, 2, $"Weak {EnemyType} attack");
+                    Goblin.AddMove(Attack);
                     Combat combat = new Combat(aPlayer, Goblin);
+
                     
 
                 }
                 else
                 {
-                    Enemy Goku = new Enemy("Son Goku", 10000, 1000, (Magic)EnemyType, false, 100, true);
+                    Enemy Goku = new Enemy("Son Goku", 10000, 1000,EnemyType, false, 100, true);
+                    Move Attack = new Move(EnemyType, 0, 100, $"Weak {EnemyType} attack");
+                    Goku.AddMove(Attack);
                     Combat combat = new Combat(aPlayer, Goku);
                     
                 }

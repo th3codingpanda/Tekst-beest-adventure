@@ -36,10 +36,9 @@ namespace Tekst_beest_adventure
             {new List<Weakness>{Weakness.Normal, Weakness.Normal, Weakness.Normal, Weakness.Goku ,Weakness.Normal, Weakness.Normal, Weakness.Normal, Weakness.Weak, Weakness.Normal } },
         };
 
-        public float ReturnWeakness(Magics.Magic AttackingMagic,Magics.Magic DefendingMagic) {
+        public float ReturnWeakness(Magics.Magic AttackingMagic,Magics.Magic DefendingMagic, Magics.Magic DefendingMagic2) {
             SlowTyping slowTyping = new SlowTyping();
-            float MultiplierWeakness = (float)Table[(int)AttackingMagic][(int)DefendingMagic] /100;
-
+            float MultiplierWeakness = ((float)Table[(int)AttackingMagic][(int)DefendingMagic] + (float)Table[(int)AttackingMagic][(int)DefendingMagic2] )/ 100 / 2;
             if (MultiplierWeakness <= 0.5f) {
                 slowTyping.SlowlyType("Not very effective");
             }

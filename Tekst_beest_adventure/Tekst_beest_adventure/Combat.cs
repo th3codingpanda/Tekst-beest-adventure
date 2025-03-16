@@ -41,8 +41,8 @@ namespace Tekst_beest_adventure
                     slowTyping.SlightlyFaster($"Your HP is: {aPlayer.HP} out of {aPlayer.MaxHP}\nYour XP is: {aPlayer.XP}\nEnemy HP is: {aEnemy.HP}");
                     slowTyping.SlightlyFaster("Player turn");
                     slowTyping.SlightlyFaster("Choose a move");
-                    for (int i = 0; i < aPlayer.moves.Count; i++) {
-                        slowTyping.SlightlyFaster($"{i+1}.{aPlayer.moves[i].Name}");
+                    for (int i = 0; i < aPlayer.Moves.Count; i++) {
+                        slowTyping.SlightlyFaster($"{i+1}.{aPlayer.Moves[i].Name}");
                     }
                     Input = Console.ReadLine();
                     if (Input == null) {
@@ -54,9 +54,9 @@ namespace Tekst_beest_adventure
                     try {
                        int Move = Int32.Parse(Input);
                        Damage damage = new Damage();
-                        if (Move > 0 && Move <= aPlayer.moves.Count)
+                        if (Move > 0 && Move <= aPlayer.Moves.Count)
                         {
-                            damage.CalculatePlayerDamage(aPlayer.moves[Move-1],aPlayer, aEnemy);
+                            damage.CalculateDamage(aPlayer.Moves[Move-1],aPlayer, aEnemy,true);
                         }
                         else
                         {
@@ -99,8 +99,10 @@ namespace Tekst_beest_adventure
                 Console.Clear();
                 slowTyping.SlowlyType("Enemy turn");
                 slowTyping.SlowlyType($"Enemy used {aEnemy.MagicType} attack");
+                var rand = new Random();
+                int Move = rand.Next(0, aEnemy.Moves.Count);
                 Damage damage = new Damage();
-                damage.CalculateEnemyDamage(aEnemy.Damage, aPlayer, aEnemy);
+                damage.CalculateDamage(aEnemy.Moves[Move], aPlayer, aEnemy ,false);
                 Task.Delay(1000).Wait();
                 PlayerTurn(aPlayer, aEnemy);
                 

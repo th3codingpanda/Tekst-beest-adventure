@@ -16,6 +16,7 @@ namespace Tekst_beest_adventure
         public int KarmaGain;
         public int Damage;
         public bool Boss;
+        public List<Move> Moves = new List<Move>();
 
         public Enemy(string aName, int HPAmount, int XPAmount,Magics.Magic aMagicType,bool IsEvil , int DamageAmount ,bool IsBoss) {
             Name = aName;
@@ -31,7 +32,11 @@ namespace Tekst_beest_adventure
             else {
                 KarmaGain = -100;
             }
-            
+           
         }
+        public void AddMove(Move aMove) {
+        Moves.Add(aMove);
+        }
+
     }
 }

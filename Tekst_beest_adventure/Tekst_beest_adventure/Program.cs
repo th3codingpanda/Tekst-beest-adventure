@@ -10,9 +10,9 @@ namespace Tekst_beest_adventure
         static void Main(string[] args)
         {    
 
-            //Player aPlayer = new Player("Raf", 20, 0, 7,);
-            //Path1 path1 = new Path1(aPlayer);
-            
+            Player aPlayer = new Player("Raf", 20, 0, 1,2);
+            Path1 path1 = new Path1(aPlayer);
+            /*
                 Player aPlayer;
                 Console.WriteLine("Hello, world\r\nProgrammed to work and not to feel\r\nNot even sure that this is real\r\nHello, world\r\nFind my voice\r\nAlthough, it sounds like bits and bytes\r\nMy circuitry is filled with mites\r\nHello, world\r\nOh, will I find a love\r\nOr a power plug?\r\nOh, digitally isolated\r\nOh, creator, please don't leave me waiting\r\nHello, world\r\nProgrammed to work and not to feel\r\nNot even sure that this is real\r\nHello, world");
                 string? Name;
@@ -95,6 +95,8 @@ namespace Tekst_beest_adventure
                     return;
                     //Catches if input can not be turned into an int
                 }
+            */
+
             //path1 continues code here
             //add a wizard that randomizes ur magic to another magic and not goku
             //add a chest that teleports you to a path and changes ur magic to weatherforcasting and traps you in combat

@@ -20,12 +20,12 @@ namespace Tekst_beest_adventure
         public int Level;
         public Magic MagicType;
         public Magic SecondMagicType;
-        public List<Move> moves = new List<Move>();
+        public List<Move> Moves = new List<Move>();
         public int CurrentPath;
         public Statoos Status;
         public bool LastBattleWon;
         public int Coins;
-        private Inventory inv = new Inventory();
+        private Inventory Inv = new Inventory();
         public Player(string aName,int HPAmount, int XPAmount, int aMagicType,int aSecondMagicType)
         {
 
@@ -40,26 +40,26 @@ namespace Tekst_beest_adventure
             CurrentPath = 0;
             Move move1 = new Move(Magic.NEUTRAL, 0, 3, $"Tackle");
             Move move2 = new Move(MagicType, 0, 3, $"Weak {MagicType} Attack");
-            moves.Add(move1);
-            moves.Add(move2);
+            Moves.Add(move1);
+            Moves.Add(move2);
             Coins = 0;
             
         }
 
         public void AddItem(Item aItem)
         {
-            inv.InventoryAdd(aItem);
+            Inv.InventoryAdd(aItem);
         }
         public void RemoveItem(ItemList.TheItemList aItem, int aAmount)
         {
-            inv.InventoryRemove(aItem,aAmount);
+            Inv.InventoryRemove(aItem,aAmount);
         }
         public List<Item> ShowItems() {
-        return inv.InventoryCheck();
+        return Inv.InventoryCheck();
         }
         public bool SearchItems(ItemList.TheItemList aItem) 
         {
-            return inv.SpecificCheck(aItem);
+            return Inv.SpecificCheck(aItem);
         }
 
     }

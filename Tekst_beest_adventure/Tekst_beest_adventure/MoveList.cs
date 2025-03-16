@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using static Tekst_beest_adventure.Magics;
@@ -22,12 +23,9 @@ namespace Tekst_beest_adventure
         new List<Move>{},
         new List<Move>{Tackle}
         };
-    public void CheckList(Player aPlayer) {
-            if (TheMoves[(int)aPlayer.MagicType][0].RequiredLevel == aPlayer.Level) {
+    public List<Move> CheckList(int aInt) {
 
-            }
-            
-
+            return TheMoves[aInt];
         }
     }
 }
