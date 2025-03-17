@@ -17,7 +17,7 @@ namespace Tekst_beest_adventure
                 Console.Clear();
                 var rand = new Random();
                 Magic EnemyType =(Magic)rand.Next(0, 8);
-                if (EnemyType != Magic.GOKU)
+                if (EnemyType != Magic.GOKU_AND_MIKU)
                 {
                     //Name Hp Xp Type evil Damage BossStatus
                     Enemy Goblin = new Enemy("Goblin", 10, 450,EnemyType, true, 2, false);

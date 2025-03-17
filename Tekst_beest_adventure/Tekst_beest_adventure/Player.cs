@@ -41,7 +41,9 @@ namespace Tekst_beest_adventure
             Coins = 0;
             CheckNewMoves checkNewMoves = new CheckNewMoves();
             checkNewMoves.CheckForNewMoves(this,MagicType);
-            checkNewMoves.CheckForNewMoves(this,SecondMagicType);
+            if (MagicType != SecondMagicType) {
+                checkNewMoves.CheckForNewMoves(this, SecondMagicType);
+            }
             checkNewMoves.CheckForNewMoves(this, Magic.NEUTRAL);
 
         }

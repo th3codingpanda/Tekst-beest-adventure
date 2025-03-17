@@ -17,7 +17,7 @@ namespace Tekst_beest_adventure
             DARK = 4,
             LIGHT = 5,
             WEATHERFORECASTING = 6,
-            GOKU = 7,
+            GOKU_AND_MIKU = 7,
             NEUTRAL = 8,
         }
     }

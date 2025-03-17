@@ -8,17 +8,16 @@ namespace Tekst_beest_adventure
     {
         
         static void Main(string[] args)
-        {    
+        {
 
-            Player aPlayer = new Player("Raf", 20, 0, 7,7);
-            Leveling leveling = new Leveling();
+            Player aPlayer = new Player("Raf", 20, 0, 7, 7);
             Path1 path1 = new Path1(aPlayer);
             /*
                 Player aPlayer;
                 Console.WriteLine("Hello, world\r\nProgrammed to work and not to feel\r\nNot even sure that this is real\r\nHello, world\r\nFind my voice\r\nAlthough, it sounds like bits and bytes\r\nMy circuitry is filled with mites\r\nHello, world\r\nOh, will I find a love\r\nOr a power plug?\r\nOh, digitally isolated\r\nOh, creator, please don't leave me waiting\r\nHello, world\r\nProgrammed to work and not to feel\r\nNot even sure that this is real\r\nHello, world");
                 string? Name;
                 string? Input;
-                SlowTyping slowTyping = new SlowTyping();
+                SlowTyping slowTyping = SlowTyping.GetInstance();
                 Console.Clear();
                 slowTyping.SlowlyType("Enter a Name");
                 Name = Console.ReadLine();
@@ -65,6 +64,7 @@ namespace Tekst_beest_adventure
                         {
                             slowTyping.SlowlyType($"You have chosen: {(Magics.Magic)SecondMagicType}");
                             Task.Delay(1000).Wait();
+                            Console.Clear();
                             aPlayer = new Player(Name, 20, 0, MagicType, SecondMagicType);
                             Path1 path1 = new Path1(aPlayer);
                         }
@@ -96,7 +96,7 @@ namespace Tekst_beest_adventure
                     return;
                     //Catches if input can not be turned into an int
                 }
-            */
+            
 
             //path1 continues code here
             //add a wizard that randomizes ur magic to another magic and not goku
@@ -107,7 +107,7 @@ namespace Tekst_beest_adventure
             //if u reach the end with weatherforecasting then u get hired by rtl and don't have to fight the final boss because he dies of the weather
             //make more than 1 paths to weatherforecasting jail
             //perfect cell boss
-            
+            */
         }
     }
     }

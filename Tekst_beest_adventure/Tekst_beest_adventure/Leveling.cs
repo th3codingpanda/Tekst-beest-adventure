@@ -26,7 +26,10 @@ namespace Tekst_beest_adventure
                 }
                 CheckNewMoves checkNewMoves = new CheckNewMoves();
                 checkNewMoves.CheckForNewMoves(aPlayer, aPlayer.MagicType);
-                checkNewMoves.CheckForNewMoves(aPlayer, aPlayer.SecondMagicType);
+                if (aPlayer.MagicType != aPlayer.SecondMagicType) {
+                    checkNewMoves.CheckForNewMoves(aPlayer, aPlayer.SecondMagicType);
+                }
+                checkNewMoves.CheckForNewMoves(aPlayer, Magics.Magic.NEUTRAL);
                 return;
 
                 

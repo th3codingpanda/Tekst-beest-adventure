@@ -11,6 +11,7 @@
             for (int i = 0; i < MagicList.Count; i++) {
                 if (MagicList[i].RequiredLevel == aPlayer.Level) {
                     slowTyping.SlowlyType($"You are learning {MagicList[i].Name}");
+                    Task.Delay(500).Wait();
                     if (aPlayer.Moves.Count < 4)
                     {
                         aPlayer.Moves.Add(MagicList[i]);
@@ -36,7 +37,8 @@
                                 {
                                     slowTyping.SlowlyType($"{aPlayer.Moves[InputParse].Name} Replaced with {MagicList[i].Name}");
                                     aPlayer.Moves[InputParse] = MagicList[i];
-                                    return;
+                                    Task.Delay(1000).Wait();
+                                return;
                                 }
                                 else
                                 {
