@@ -37,7 +37,7 @@ namespace Tekst_beest_adventure
         };
 
         public float ReturnWeakness(Magics.Magic AttackingMagic,Magics.Magic DefendingMagic, Magics.Magic DefendingMagic2) {
-            SlowTyping slowTyping = new SlowTyping();
+            SlowTyping slowTyping = SlowTyping.GetInstance();
             float MultiplierWeakness = ((float)Table[(int)AttackingMagic][(int)DefendingMagic] + (float)Table[(int)AttackingMagic][(int)DefendingMagic2] )/ 100 / 2;
             if (MultiplierWeakness <= 0.5f) {
                 slowTyping.SlowlyType("Not very effective");

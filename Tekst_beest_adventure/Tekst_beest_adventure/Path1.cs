@@ -9,7 +9,7 @@ namespace Tekst_beest_adventure
 {
     internal class Path1
     {
-        SlowTyping slowTyping = new SlowTyping();
+        SlowTyping slowTyping = SlowTyping.GetInstance();
         public Path1(Player aPlayer)
         {
             while (aPlayer.LastBattleWon == false)

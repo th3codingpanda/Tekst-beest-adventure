@@ -24,8 +24,9 @@ namespace Tekst_beest_adventure
         new List<Move>{Tackle}
         };
     public List<Move> CheckList(int aInt) {
-
+            Console.WriteLine(aInt);
             return TheMoves[aInt];
+
         }
     }
 }

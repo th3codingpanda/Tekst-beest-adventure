@@ -35,7 +35,7 @@ namespace Tekst_beest_adventure
             XP = XPAmount;
             MagicType = (Magic)aMagicType;
             SecondMagicType = (Magic)aSecondMagicType;
-            Level = 1;
+            Level = 0;
             Karma = 0;
             CurrentPath = 0;
             Move move1 = new Move(Magic.NEUTRAL, 0, 3, $"Tackle");

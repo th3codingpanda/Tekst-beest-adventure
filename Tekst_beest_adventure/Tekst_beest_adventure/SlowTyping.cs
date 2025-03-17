@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
@@ -9,6 +10,16 @@ namespace Tekst_beest_adventure
 {
     internal class SlowTyping
     {
+        private static SlowTyping? instance;
+        private SlowTyping() {
+        
+        }
+        public static SlowTyping GetInstance() {
+            if (instance == null) {
+            instance = new SlowTyping();
+            }
+            return instance;
+        }
         int Amount = 0;
         public void SlowlyType(string WhatIsTyped)
         {

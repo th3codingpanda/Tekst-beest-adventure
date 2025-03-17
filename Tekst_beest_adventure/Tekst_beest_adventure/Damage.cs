@@ -13,7 +13,7 @@ namespace Tekst_beest_adventure
         {
             int TheDamage = aMove.Damage;
             Console.Clear();
-            SlowTyping slowTyping = new SlowTyping();
+            SlowTyping slowTyping = SlowTyping.GetInstance();
             var rand = new Random();
             float DamageRandom = rand.Next(60, 150);
             DamageRandom = DamageRandom / 100;

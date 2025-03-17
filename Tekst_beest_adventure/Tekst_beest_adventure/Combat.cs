@@ -10,7 +10,7 @@ namespace Tekst_beest_adventure
 {
      class Combat
     {
-        SlowTyping slowTyping = new SlowTyping();
+        SlowTyping slowTyping = SlowTyping.GetInstance();
         bool BattleEnded;
         public string? Input;
 
