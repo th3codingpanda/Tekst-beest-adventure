@@ -33,9 +33,7 @@ namespace Tekst_beest_adventure
             }
             else {
                 slowTyping.SlowlyType($"You need {1000 * (1 + 0.2f  * aPlayer.Level) - aPlayer.XP} XP to level up");
-                CheckNewMoves checkNewMoves = new CheckNewMoves();
-                checkNewMoves.CheckForNewMoves(aPlayer, aPlayer.MagicType);
-                checkNewMoves.CheckForNewMoves(aPlayer, aPlayer.SecondMagicType);
+
                 Task.Delay(500).Wait();
 
 

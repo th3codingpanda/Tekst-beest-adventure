@@ -38,12 +38,12 @@ namespace Tekst_beest_adventure
             Level = 0;
             Karma = 0;
             CurrentPath = 0;
-            Move move1 = new Move(Magic.NEUTRAL, 0, 3, $"Tackle");
-            Move move2 = new Move(MagicType, 0, 3, $"Weak {MagicType} Attack");
-            Moves.Add(move1);
-            Moves.Add(move2);
             Coins = 0;
-            
+            CheckNewMoves checkNewMoves = new CheckNewMoves();
+            checkNewMoves.CheckForNewMoves(this,MagicType);
+            checkNewMoves.CheckForNewMoves(this,SecondMagicType);
+            checkNewMoves.CheckForNewMoves(this, Magic.NEUTRAL);
+
         }
 
         public void AddItem(Item aItem)

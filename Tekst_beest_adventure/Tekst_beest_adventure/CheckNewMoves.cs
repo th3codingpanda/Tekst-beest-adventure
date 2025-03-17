@@ -9,9 +9,7 @@
             List<Move> MagicList = moveList.CheckList((int)aMagic);
             
             for (int i = 0; i < MagicList.Count; i++) {
-                Console.WriteLine(MagicList[i].RequiredLevel);
                 if (MagicList[i].RequiredLevel == aPlayer.Level) {
-
                     slowTyping.SlowlyType($"You are learning {MagicList[i].Name}");
                     if (aPlayer.Moves.Count < 4)
                     {

@@ -10,10 +10,8 @@ namespace Tekst_beest_adventure
         static void Main(string[] args)
         {    
 
-            Player aPlayer = new Player("Raf", 20, 0, 7,8);
+            Player aPlayer = new Player("Raf", 20, 0, 7,7);
             Leveling leveling = new Leveling();
-            leveling.CheckXP(aPlayer);
-            Task.Delay(1000).Wait();
             Path1 path1 = new Path1(aPlayer);
             /*
                 Player aPlayer;
