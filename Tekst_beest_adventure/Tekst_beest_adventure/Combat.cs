@@ -15,7 +15,7 @@ namespace Tekst_beest_adventure
         public string? Input;
 
         public Combat(Player aPlayer,Enemy aEnemy){
-            slowTyping.SlowlyType($"A {aEnemy.MagicType} {aEnemy.Name} has appeared");
+            slowTyping.SlowlyType($"A {aEnemy.Name} has appeared");
             Task.Delay( 1000 ).Wait();
             PlayerTurn(aPlayer,aEnemy);
         }

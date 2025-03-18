@@ -16,7 +16,7 @@ namespace Tekst_beest_adventure
         public int Karma;
         public int MaxHP;
         public int HP;
-        public int XP;
+        public float XP;
         public int Level;
         public Magic MagicType;
         public Magic SecondMagicType;
@@ -26,7 +26,7 @@ namespace Tekst_beest_adventure
         public bool LastBattleWon;
         public int Coins;
         private Inventory Inv = new Inventory();
-        public Player(string aName,int HPAmount, int XPAmount, int aMagicType,int aSecondMagicType)
+        public Player(string aName,int HPAmount, float XPAmount, int aMagicType,int aSecondMagicType)
         {
 
             Name = aName;
@@ -39,13 +39,16 @@ namespace Tekst_beest_adventure
             Karma = 0;
             CurrentPath = 0;
             Coins = 0;
-            CheckNewMoves checkNewMoves = new CheckNewMoves();
-            checkNewMoves.CheckForNewMoves(this,MagicType);
-            if (MagicType != SecondMagicType) {
-                checkNewMoves.CheckForNewMoves(this, SecondMagicType);
-            }
-            checkNewMoves.CheckForNewMoves(this, Magic.NEUTRAL);
 
+            
+                CheckNewMoves checkNewMoves = new CheckNewMoves();
+                checkNewMoves.CheckForNewMoves(this, MagicType);
+                if (MagicType != SecondMagicType)
+                {
+                    checkNewMoves.CheckForNewMoves(this, SecondMagicType);
+                }
+                checkNewMoves.CheckForNewMoves(this, Magic.NEUTRAL);
+            
         }
 
         public void AddItem(Item aItem)

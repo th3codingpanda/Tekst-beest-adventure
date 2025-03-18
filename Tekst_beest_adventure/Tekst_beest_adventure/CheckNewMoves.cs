@@ -10,7 +10,7 @@
             
             for (int i = 0; i < MagicList.Count; i++) {
                 if (MagicList[i].RequiredLevel == aPlayer.Level) {
-                    slowTyping.SlowlyType($"You are learning {MagicList[i].Name}");
+                    slowTyping.SlightlyFaster($"You are learning {MagicList[i].Name}");
                     Task.Delay(500).Wait();
                     if (aPlayer.Moves.Count < 4)
                     {

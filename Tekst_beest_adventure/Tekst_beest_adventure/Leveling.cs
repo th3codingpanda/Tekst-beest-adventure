@@ -13,13 +13,13 @@ namespace Tekst_beest_adventure
         public void CheckXP(Player aPlayer) {
             if (aPlayer.XP >= 1000 * (1 + 0.2f * aPlayer.Level))
             {
-                aPlayer.XP -= 1000 * aPlayer.Level;
+                aPlayer.XP -= 1000 * (1 + 0.2f * aPlayer.Level);
                 aPlayer.Level += 1;
                 aPlayer.MaxHP += 10;
                 aPlayer.HP = aPlayer.MaxHP;
 
                 
-                slowTyping.SlowlyType($"You have leveled up to level: {aPlayer.Level}");
+                Console.WriteLine($"You have leveled up to level: {aPlayer.Level}");
                 CheckXP(aPlayer);
                 for (int i = 0; i < aPlayer.Moves.Count; i++) {
                     aPlayer.Moves[i].Damage += 2;
