@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Reflection.PortableExecutable;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using static Tekst_beest_adventure.Magics;
 using static Tekst_beest_adventure.Status;
 namespace Tekst_beest_adventure

@@ -1,8 +1,4 @@
-﻿using System.Data.Common;
-using System.Diagnostics.CodeAnalysis;
-using System.Dynamic;
-using System.Xml.Linq;
-using Tekst_beest_adventure;
+﻿
 namespace Tekst_beest_adventure
 {
     internal class Program
