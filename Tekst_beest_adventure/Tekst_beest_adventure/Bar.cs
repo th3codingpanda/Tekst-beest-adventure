@@ -29,7 +29,7 @@ namespace Tekst_beest_adventure
                     else {
                         slowTyping.SlightlyFaster("You're too full to eat any more");
                     }
-
+                    Task.Delay(1000).Wait();
 
                 }
                 else if (Input == "1") 
