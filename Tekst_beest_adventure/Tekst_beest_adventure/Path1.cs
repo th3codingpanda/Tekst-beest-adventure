@@ -20,7 +20,6 @@ namespace Tekst_beest_adventure
                 Magic EnemyType = (Magic)rand.Next(0, 8);
                 if (EnemyType != Magic.GOKU_AND_MIKU)
                 {
-                    //Name Hp Xp Type evil Damage BossStatus
                     Enemy Goblin = new Enemy($"{EnemyType} Goblin", 10, 450, EnemyType, true, false);
                     Move Attack = new Move(EnemyType, 0, 2, $"Weak {EnemyType} attack");
                     Goblin.AddMove(Attack);
@@ -35,7 +34,6 @@ namespace Tekst_beest_adventure
 
                 }
             }
-
             int fiftyfifty = rand.Next(0, 2);
             if (fiftyfifty == 0)
             {

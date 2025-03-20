@@ -27,103 +27,99 @@ namespace Tekst_beest_adventure
             {
                 slowTyping.SlowlyType($"A {aEnemy.Name} has appeared");
             }
-
-
             Task.Delay(1000).Wait();
-            PlayerTurn(aPlayer, aEnemy);
+            StartCombat(aPlayer, aEnemy);
         }
-        public void PlayerTurn(Player aPlayer, Enemy aEnemy)
+        public void StartCombat(Player aPlayer, Enemy aEnemy)
         {
-            if (!BattleEnded)
+            while (!BattleEnded)
             {
-                if (aPlayer.HP <= 0)
+                //Playerturn
+                while (true)
                 {
-                    slowTyping.SlightlyFaster("You lost the combat");
-                    slowTyping.SlightlyFaster("Going Back to last checkpoint");
-                    Task.Delay(1000).Wait();
-                    BattleEnded = true;
-                    aPlayer.HP = aPlayer.MaxHP;
-                    aPlayer.LastBattleWon = false;
-                    aPlayer.Karma += aEnemy.KarmaGain;
-                    return;
-
-
-                }
-                else
-                {
-                    Console.Clear();
-                    slowTyping.SlightlyFaster($"Your HP is: {aPlayer.HP} out of {aPlayer.MaxHP}\nYour XP is: {aPlayer.XP}\nEnemy HP is: {aEnemy.HP}");
-                    slowTyping.SlightlyFaster("Player turn");
-                    slowTyping.SlightlyFaster("Choose a move");
-                    for (int i = 0; i < aPlayer.Moves.Count; i++)
+                    if (aPlayer.HP <= 0)
                     {
-                        slowTyping.SlightlyFaster($"{i + 1}.{aPlayer.Moves[i].Name}");
-                    }
-                    Input = Console.ReadLine();
-                    if (Input == null)
-                    {
-                        Console.WriteLine("Please do not enter null");
-                        Task.Delay(10000).Wait();
-                        PlayerTurn(aPlayer, aEnemy);
+                        slowTyping.SlightlyFaster("You lost the combat");
+                        Task.Delay(1000).Wait();
+                        BattleEnded = true;
+                        aPlayer.HP = aPlayer.MaxHP;
+                        aPlayer.LastBattleWon = false;
+                        aPlayer.Karma += aEnemy.KarmaGain;
                         return;
                     }
-                    try
+                    else
                     {
-                        int Move = Int32.Parse(Input);
-                        Damage damage = new Damage();
-                        if (Move > 0 && Move <= aPlayer.Moves.Count)
+                        Console.Clear();
+                        slowTyping.SlightlyFaster($"Your HP is: {aPlayer.HP} out of {aPlayer.MaxHP}\nYour XP is: {aPlayer.XP}\nEnemy HP is: {aEnemy.HP}");
+                        slowTyping.SlightlyFaster("Player turn");
+                        slowTyping.SlightlyFaster("Choose a move");
+                        for (int i = 0; i < aPlayer.Moves.Count; i++)
                         {
-                            damage.CalculateDamage(aPlayer.Moves[Move - 1], aPlayer, aEnemy, true);
+                            slowTyping.SlightlyFaster($"{i + 1}.{aPlayer.Moves[i].Name}");
                         }
-                        else
+                        Input = Console.ReadLine();
+                        if (Input == null)
+                        {
+                            Console.WriteLine("Please do not enter null");
+                            Task.Delay(10000).Wait();
+                            continue;
+                        }
+                        try
+                        {
+                            int Move = Int32.Parse(Input);
+                            Damage damage = new Damage();
+                            if (Move > 0 && Move <= aPlayer.Moves.Count)
+                            {
+                                damage.CalculateDamage(aPlayer.Moves[Move - 1], aPlayer, aEnemy, true);
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Please enter a valid Number");
+                                Task.Delay(1000).Wait();
+
+                            }
+                        }
+                        catch (FormatException)
                         {
                             Console.WriteLine("Please enter a valid Number");
                             Task.Delay(1000).Wait();
-                            PlayerTurn(aPlayer, aEnemy);
-                            return;
 
                         }
                     }
-                    catch (FormatException)
+
+                }
+                while (true)
+                {
+                    if (aEnemy.HP <= 0)
                     {
-                        Console.WriteLine("Please enter a valid Number");
-                        Task.Delay(1000).Wait();
-                        PlayerTurn(aPlayer, aEnemy);
+                        slowTyping.SlightlyFaster("You Won the combat");
+                        slowTyping.SlightlyFaster($"Xp gotten: {aEnemy.XP}");
+                        aPlayer.XP += aEnemy.XP;
+                        Task.Delay(500).Wait();
+                        Leveling leveling = new Leveling();
+                        leveling.CheckXP(aPlayer);
+                        BattleEnded = true;
+                        aPlayer.LastBattleWon = true;
                         return;
                     }
-
-                    Task.Delay(1000).Wait();
-                    EnemyTurn(aPlayer, aEnemy);
+                    else
+                    {
+                        Console.Clear();
+                        slowTyping.SlightlyFaster("Enemy turn");
+                        var rand = new Random();
+                        int Move = rand.Next(0, aEnemy.Moves.Count);
+                        slowTyping.SlightlyFaster($"Enemy used {aEnemy.Moves[Move].Name}");
+                        Task.Delay(1000).Wait();
+                        damage.CalculateDamage(aEnemy.Moves[Move], aPlayer, aEnemy, false);
+                        Task.Delay(1000).Wait();
+                        break;
+                    }
                 }
-
-            }
-        }
-        public void EnemyTurn(Player aPlayer, Enemy aEnemy)
-        {
-            if (aEnemy.HP <= 0)
-            {
-                slowTyping.SlightlyFaster("You Won the combat");
-                slowTyping.SlightlyFaster($"Xp gotten: {aEnemy.XP}");
-                aPlayer.XP += aEnemy.XP;
-                Task.Delay(500).Wait();
-                Leveling leveling = new Leveling();
-                leveling.CheckXP(aPlayer);
-                BattleEnded = true;
-                aPlayer.LastBattleWon = true;
-                return;
-            }
-            else
-            {
-                Console.Clear();
-                slowTyping.SlightlyFaster("Enemy turn");
-                var rand = new Random();
-                int Move = rand.Next(0, aEnemy.Moves.Count);
-                slowTyping.SlightlyFaster($"Enemy used {aEnemy.Moves[Move].Name}");
-                damage.CalculateDamage(aEnemy.Moves[Move], aPlayer, aEnemy, false);
-                Task.Delay(1000).Wait();
-                PlayerTurn(aPlayer, aEnemy);
-
             }
         }
     }
 }
+               
+
+            

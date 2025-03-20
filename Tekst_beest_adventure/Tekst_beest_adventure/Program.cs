@@ -41,7 +41,7 @@ namespace Tekst_beest_adventure
                 if (MagicType >= 0 && MagicType <= 7)
                 {
                     slowTyping.SlowlyType($"You have chosen: {(Magics.Magic)MagicType}");
-                    Task.Delay(1000).Wait();
+                    Task.Delay(500).Wait();
                     slowTyping.SlowlyType("Choose your Second MagicType");
                     slowTyping.SlightlyFaster(" Fire = 0\n Water = 1\n Earth = 2\n Air = 3\n Dark = 4\n Light = 5");
                     Input = Console.ReadLine();
@@ -58,7 +58,7 @@ namespace Tekst_beest_adventure
                         if (SecondMagicType >= 0 && MagicType <= 7)
                         {
                             slowTyping.SlowlyType($"You have chosen: {(Magics.Magic)SecondMagicType}");
-                            Task.Delay(1000).Wait();
+                            Task.Delay(500).Wait();
                             Console.Clear();
                             aPlayer = new Player(Name, 20, 0, MagicType, SecondMagicType);
                             Path1 path1 = new Path1(aPlayer);
@@ -127,6 +127,7 @@ namespace Tekst_beest_adventure
                                 slowTyping.SlightlyFaster("You're max hp increased by 20");
                                 aPlayer.MaxHP += 20;
                                 aPlayer.HP += 20;
+                                aPlayer.RemoveItem(ItemList.TheItemList.POTION, 1);
                             }
 
                             EncounterEnded = true;

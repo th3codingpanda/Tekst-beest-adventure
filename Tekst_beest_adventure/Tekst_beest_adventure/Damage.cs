@@ -23,6 +23,7 @@ namespace Tekst_beest_adventure
                 aPlayer.HP -= TheDamage;
                 slowTyping.SlowlyType($"{aPlayer.Name} Took {TheDamage}");
                 slowTyping.SlowlyType($"{aPlayer.Name}'s HP is:  {aPlayer.HP}");
+                Task.Delay(300).Wait();
             }
             else
             {
@@ -30,6 +31,7 @@ namespace Tekst_beest_adventure
                 aEnemy.HP -= TheDamage;
                 slowTyping.SlowlyType($"{aEnemy.Name} Took {TheDamage}");
                 slowTyping.SlowlyType($"Enemy Hp is: {aEnemy.HP}");
+                Task.Delay(300).Wait();
             }
 
 
