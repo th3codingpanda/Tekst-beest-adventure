@@ -10,7 +10,7 @@ namespace Tekst_beest_adventure
     {
         public  enum TheItemList
         {
-            GUN = 0,
+            POTION = 0,
             KEY = 1,
         };
     }

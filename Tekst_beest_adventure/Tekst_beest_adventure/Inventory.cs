@@ -9,6 +9,7 @@ namespace Tekst_beest_adventure
 
     public class Inventory
     {
+        SlowTyping slowTyping = SlowTyping.GetInstance();
 
         private List<Item> PlayerInventory = new List<Item>();
 
@@ -20,12 +21,16 @@ namespace Tekst_beest_adventure
                 if (PlayerInventory[i].Name == item.Name)
                 {
                 PlayerInventory[i].Amount++;
+                slowTyping.SlightlyFaster($"Obtained item: {item.Name}");
+                    Task.Delay(500).Wait();
                     HasItem = true;
                 }
             }
             if (!HasItem)
             {
                 PlayerInventory.Add(item);
+                slowTyping.SlightlyFaster($"Obtained item: {item.Name}");
+                Task.Delay(500).Wait();
             }
         }
         public void InventoryRemove(ItemList.TheItemList aItem, int amount)
@@ -34,8 +39,11 @@ namespace Tekst_beest_adventure
                 if (PlayerInventory[i].Name.ToString() == aItem.ToString() && amount != 0)
                 {
                     PlayerInventory[i].Amount -= amount;
+                    Console.WriteLine($"Removed {amount} {aItem.ToString()}");
+                    Task.Delay(500).Wait();
                     if (PlayerInventory[i].Amount <= 0)
                     {
+                        
                         PlayerInventory.Remove(PlayerInventory[i]);
                     }
                 }

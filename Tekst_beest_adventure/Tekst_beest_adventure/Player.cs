@@ -22,7 +22,7 @@ namespace Tekst_beest_adventure
         public Magic SecondMagicType;
         public List<Move> Moves = new List<Move>();
         public int CurrentPath;
-        public Statoos Status;
+        public Statoos PlayerStatus;
         public bool LastBattleWon;
         public int Coins;
         private Inventory Inv = new Inventory();
@@ -39,7 +39,7 @@ namespace Tekst_beest_adventure
             Karma = 0;
             CurrentPath = 0;
             Coins = 0;
-
+            PlayerStatus = Statoos.HUNGER;
             
                 CheckNewMoves checkNewMoves = new CheckNewMoves();
                 checkNewMoves.CheckForNewMoves(this, MagicType);
@@ -65,6 +65,14 @@ namespace Tekst_beest_adventure
         public bool SearchItems(ItemList.TheItemList aItem) 
         {
             return Inv.SpecificCheck(aItem);
+        }
+        public void UpdateStatus(Statoos aStatus) {
+            if (PlayerStatus != Statoos.NOTHING)
+            {
+                PlayerStatus = aStatus;
+                Console.WriteLine($"You have been inflicted by {PlayerStatus.ToString()}");
+                Task.Delay(1000).Wait();
+            }
         }
 
     }

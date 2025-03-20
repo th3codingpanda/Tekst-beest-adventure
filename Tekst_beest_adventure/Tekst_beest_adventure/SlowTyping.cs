@@ -60,6 +60,26 @@ namespace Tekst_beest_adventure
             }
             return;
         }
+        public void SuperFast(string WhatIsTyped)
+        {
+            Amount = 0;
+            foreach (char c in WhatIsTyped)
+            {
+                Amount++;
+                if (Amount != WhatIsTyped.Length)
+                {
+                    Console.Write(c);
+                    Task.Delay(01).Wait();
+
+                }
+                else
+                {
+                    Console.WriteLine(c);
+                    Task.Delay(01).Wait();
+                }
+            }
+            return;
+        }
 
 
     }

@@ -19,6 +19,7 @@ namespace Tekst_beest_adventure
             WEATHERFORECASTING = 6,
             GOKU_AND_MIKU = 7,
             NEUTRAL = 8,
+            Perfect_Cell
         }
     }
 }

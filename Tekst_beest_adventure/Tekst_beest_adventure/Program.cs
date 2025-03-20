@@ -6,18 +6,15 @@ namespace Tekst_beest_adventure
 {
     internal class Program
     {
-        
+
         static void Main(string[] args)
         {
-
-            Player aPlayer = new Player("Raf", 20, 0, 7, 7);
-            Path1 path1 = new Path1(aPlayer);
-            /*
+            string? Input;
+            SlowTyping slowTyping = SlowTyping.GetInstance();
             Player aPlayer;
-            Console.WriteLine("Hello, world\r\nProgrammed to work and not to feel\r\nNot even sure that this is real\r\nHello, world\r\nFind my voice\r\nAlthough, it sounds like bits and bytes\r\nMy circuitry is filled with mites\r\nHello, world\r\nOh, will I find a love\r\nOr a power plug?\r\nOh, digitally isolated\r\nOh, creator, please don't leave me waiting\r\nHello, world\r\nProgrammed to work and not to feel\r\nNot even sure that this is real\r\nHello, world");
                 string? Name;
-                string? Input;
-                SlowTyping slowTyping = SlowTyping.GetInstance();
+
+                
                 Console.Clear();
                 slowTyping.SlowlyType("Enter a Name");
                 Name = Console.ReadLine();
@@ -107,50 +104,89 @@ namespace Tekst_beest_adventure
                     return;
                     //Catches if input can not be turned into an int
                 }
-            
+            bool EncounterEnded = false;
+            while (!EncounterEnded)
+            {
+                slowTyping.SlowlyType("A chest appears before you");
+                if (aPlayer.SearchItems(ItemList.TheItemList.KEY))
+                {
+                    slowTyping.SlowlyType("0: Open chest");
+                    slowTyping.SlowlyType("1: Leave chest");
+                    Input = Console.ReadLine();
+                    if (Input == null)
+                    {
+                        Console.WriteLine("Do not enter null");
+                        Task.Delay(1000).Wait();
+                        Main(args);
+                        return;
+                    }
+                    if ( Input == "0" || Input == "1" )
+                    {
+                        if (Input == "0")
+                        {
+                            aPlayer.RemoveItem(ItemList.TheItemList.KEY,1);
+                            Item Potion = new Item(ItemList.TheItemList.POTION);
+                            aPlayer.AddItem(Potion);
+                            slowTyping.SlightlyFaster("Do you want to drink the potion?\n0: Yes\n1: No");
+                            Input= Console.ReadLine();
+                            if(Input == "0")
+                            {
+                                slowTyping.SlightlyFaster("You're max hp increased by 20");
+                                aPlayer.MaxHP += 20;
+                                aPlayer.HP += 20;
+                            }
+
+                            EncounterEnded = true;
+                        }
+                        else {
+                            EncounterEnded = true;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter a valid number");
+                    }
+                }
+                else
+                {
+                    slowTyping.SlowlyType("You do not have a key to open the chest");
+                    EncounterEnded = true;
+                }
+            }
+            EncounterEnded = false;
+            Task.Delay(1000).Wait();
+            Console.Clear();
+            aPlayer.UpdateStatus(Status.Statoos.HUNGER);
+            slowTyping.SlightlyFaster("You're max hp decreased by 5");
+             aPlayer.MaxHP -= 5;
+            aPlayer.HP -= 5;
+            while (!EncounterEnded)
+            {
+                slowTyping.SlightlyFaster("You are hungry do you want to go to a bar?\n0: Yes\n1: No");
+                Input = Console.ReadLine();
+                if (Input == "0" || Input == "1")
+                {
+                    if (Input == "0")
+                    {
+                        Bar bar = new Bar(aPlayer);
+                        EncounterEnded = true;
+                    }
+                    else {
+                    EncounterEnded = true;
+                    }
+                }
+                else {
+                    Console.WriteLine("Please enter a valid number");
+                }
+            }
+
             FinalBoss finalBoss = new FinalBoss(aPlayer);
             //perfect cell boss
-            */
+            
         }
     }
     }
 
 
-//Item Gun = new Item(ItemList.TheItemList.GUN);
-//Item key = new Item(ItemList.TheItemList.KEY);
-//Item Key = new Item(ItemList.TheItemList.KEY);
-//aPlayer.AddItem(Gun);
-//aPlayer.AddItem(Gun);
-//aPlayer.AddItem(Gun);
-//aPlayer.AddItem(Key);
-//aPlayer.AddItem(key);
-//aPlayer.ShowItems();
-//Console.WriteLine(aPlayer.SearchItems(ItemList.TheItemList.GUN));
-//Console.WriteLine(aPlayer.SearchItems(ItemList.TheItemList.KEY));
-//aPlayer.RemoveItem(ItemList.TheItemList.KEY, 2);
-//aPlayer.ShowItems();
-//Task.Delay(1000).Wait();
-
-//{
-//Input = Console.ReadLine();
-//if (Input == null)
-//{
-//    Console.WriteLine("Do not enter null");
-//    Task.Delay(1000).Wait();
-//    Main(args);
-//    return;
-//}
-//try
-//{
-//    int SecondMagic = Int32.Parse(Input);
-
-//    aPlayer = new Player(Name, 20, 0, MagicType, SecondMagic);
-//    slowTyping.SlowlyType($"You have chosen {aPlayer.MagicType}");
-//    Task.Delay(1000).Wait();
-//    Path1 path1 = new Path1(aPlayer);
-
-//}
-//catch (FormatException)
-//{
-
-//}
+//Player aPlayer = new Player("Raf", 20, 0, 7, 7);
+//Path1 path1 = new Path1(aPlayer);

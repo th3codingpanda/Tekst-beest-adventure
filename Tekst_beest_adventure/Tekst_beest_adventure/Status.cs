@@ -10,13 +10,11 @@ namespace Tekst_beest_adventure
     {
         public enum Statoos
         {
-            FLAMMABLE = 0,
-            FATIGUE = 1,
-            HUNGRY = 2,
-            DRUNK = 3,
-            SICK = 4,
-            FOOD_POISONING = 5,
-            FRIGHTENED = 6,
+            NOTHING = 0,
+            HUNGER = 1,
+            Drunk = 2,
+            WELL_FED
+
         }
     }
 }

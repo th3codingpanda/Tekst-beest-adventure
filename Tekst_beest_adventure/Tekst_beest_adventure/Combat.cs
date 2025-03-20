@@ -10,12 +10,22 @@ namespace Tekst_beest_adventure
 {
      class Combat
     {
+        
         SlowTyping slowTyping = SlowTyping.GetInstance();
         bool BattleEnded;
         public string? Input;
 
         public Combat(Player aPlayer,Enemy aEnemy){
-            slowTyping.SlowlyType($"A {aEnemy.Name} has appeared");
+            if (aEnemy.Boss)
+            {
+                slowTyping.SlowlyType("A Boss approaches");
+                slowTyping.SlowlyType($"{aEnemy.Name} has appeared before you");
+            }
+            else {
+                slowTyping.SlowlyType($"A {aEnemy.Name} has appeared");
+            }
+
+
             Task.Delay( 1000 ).Wait();
             PlayerTurn(aPlayer,aEnemy);
         }
@@ -97,8 +107,8 @@ namespace Tekst_beest_adventure
             }
             else {
                 Console.Clear();
-                slowTyping.SlowlyType("Enemy turn");
-                slowTyping.SlowlyType($"Enemy used {aEnemy.MagicType} attack");
+                slowTyping.SlightlyFaster("Enemy turn");
+                slowTyping.SlightlyFaster($"Enemy used {aEnemy.MagicType} attack");
                 var rand = new Random();
                 int Move = rand.Next(0, aEnemy.Moves.Count);
                 Damage damage = new Damage();

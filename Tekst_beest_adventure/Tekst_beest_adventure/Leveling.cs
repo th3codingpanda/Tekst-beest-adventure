@@ -37,8 +37,8 @@ namespace Tekst_beest_adventure
             else {
                 slowTyping.SlowlyType($"You need {1000 * (1 + 0.2f  * aPlayer.Level) - aPlayer.XP} XP to level up");
 
-                Task.Delay(500).Wait();
-
+                Task.Delay(1000).Wait();
+                Console.Clear();
 
             };
             

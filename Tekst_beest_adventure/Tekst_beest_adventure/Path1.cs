@@ -12,10 +12,11 @@ namespace Tekst_beest_adventure
         SlowTyping slowTyping = SlowTyping.GetInstance();
         public Path1(Player aPlayer)
         {
+            var rand = new Random();
             while (aPlayer.LastBattleWon == false)
             {
                 Console.Clear();
-                var rand = new Random();
+                
                 Magic EnemyType =(Magic)rand.Next(0, 8);
                 if (EnemyType != Magic.GOKU_AND_MIKU)
                 {
@@ -37,9 +38,18 @@ namespace Tekst_beest_adventure
                     
                 }
             }
+
+            int fiftyfifty = rand.Next(0,2);
+            if (fiftyfifty == 0)
+            {
+                Item key = new Item(ItemList.TheItemList.KEY);
+                aPlayer.AddItem(key);
+            }
             slowTyping.SlightlyFaster($"You have beat the tutorial!");
             slowTyping.SlightlyFaster("You have been healed");
             aPlayer.HP = aPlayer.MaxHP;
+            Task.Delay(1000).Wait();
+            Console.Clear();
            
         }
     }
