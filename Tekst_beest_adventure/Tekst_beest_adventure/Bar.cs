@@ -34,8 +34,12 @@ namespace Tekst_beest_adventure
                 }
                 else if (Input == "1") 
                 {
+                    if (aPlayer.PlayerStatus != Status.Statoos.Drunk) {
+                        aPlayer.MaxHP -= 5;
+                    }
                     aPlayer.UpdateStatus(Status.Statoos.Drunk);
-                    aPlayer.MaxHP -= 5;
+                   
+
                     
                 }
                 else if (Input == "2") 
