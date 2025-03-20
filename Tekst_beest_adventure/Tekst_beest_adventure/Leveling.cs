@@ -10,7 +10,8 @@ namespace Tekst_beest_adventure
     {
 
         SlowTyping slowTyping = SlowTyping.GetInstance();
-        public void CheckXP(Player aPlayer) {
+        public void CheckXP(Player aPlayer)
+        {
             if (aPlayer.XP >= 1000 * (1 + 0.2f * aPlayer.Level))
             {
                 aPlayer.XP -= 1000 * (1 + 0.2f * aPlayer.Level);
@@ -18,30 +19,33 @@ namespace Tekst_beest_adventure
                 aPlayer.MaxHP += 10;
                 aPlayer.HP = aPlayer.MaxHP;
 
-                
+
                 Console.WriteLine($"You have leveled up to level: {aPlayer.Level}");
                 CheckXP(aPlayer);
-                for (int i = 0; i < aPlayer.Moves.Count; i++) {
+                for (int i = 0; i < aPlayer.Moves.Count; i++)
+                {
                     aPlayer.Moves[i].Damage += 2;
                 }
                 CheckNewMoves checkNewMoves = new CheckNewMoves();
                 checkNewMoves.CheckForNewMoves(aPlayer, aPlayer.MagicType);
-                if (aPlayer.MagicType != aPlayer.SecondMagicType) {
+                if (aPlayer.MagicType != aPlayer.SecondMagicType)
+                {
                     checkNewMoves.CheckForNewMoves(aPlayer, aPlayer.SecondMagicType);
                 }
                 checkNewMoves.CheckForNewMoves(aPlayer, Magics.Magic.NEUTRAL);
                 return;
 
-                
+
             }
-            else {
-                slowTyping.SlowlyType($"You need {1000 * (1 + 0.2f  * aPlayer.Level) - aPlayer.XP} XP to level up");
+            else
+            {
+                slowTyping.SlowlyType($"You need {1000 * (1 + 0.2f * aPlayer.Level) - aPlayer.XP} XP to level up");
 
                 Task.Delay(1000).Wait();
                 Console.Clear();
 
             };
-            
+
         }
     }
 }

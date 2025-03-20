@@ -8,26 +8,29 @@ using System.Threading.Tasks;
 
 namespace Tekst_beest_adventure
 {
-     class Combat
+    class Combat
     {
-        
+        Damage damage = new Damage();
+
         SlowTyping slowTyping = SlowTyping.GetInstance();
         bool BattleEnded;
         public string? Input;
 
-        public Combat(Player aPlayer,Enemy aEnemy){
+        public Combat(Player aPlayer, Enemy aEnemy)
+        {
             if (aEnemy.Boss)
             {
                 slowTyping.SlowlyType("A Boss approaches");
                 slowTyping.SlowlyType($"{aEnemy.Name} has appeared before you");
             }
-            else {
+            else
+            {
                 slowTyping.SlowlyType($"A {aEnemy.Name} has appeared");
             }
 
 
-            Task.Delay( 1000 ).Wait();
-            PlayerTurn(aPlayer,aEnemy);
+            Task.Delay(1000).Wait();
+            PlayerTurn(aPlayer, aEnemy);
         }
         public void PlayerTurn(Player aPlayer, Enemy aEnemy)
         {
@@ -37,7 +40,7 @@ namespace Tekst_beest_adventure
                 {
                     slowTyping.SlightlyFaster("You lost the combat");
                     slowTyping.SlightlyFaster("Going Back to last checkpoint");
-                    Task.Delay( 1000 ).Wait();
+                    Task.Delay(1000).Wait();
                     BattleEnded = true;
                     aPlayer.HP = aPlayer.MaxHP;
                     aPlayer.LastBattleWon = false;
@@ -46,27 +49,31 @@ namespace Tekst_beest_adventure
 
 
                 }
-                else {
+                else
+                {
                     Console.Clear();
                     slowTyping.SlightlyFaster($"Your HP is: {aPlayer.HP} out of {aPlayer.MaxHP}\nYour XP is: {aPlayer.XP}\nEnemy HP is: {aEnemy.HP}");
                     slowTyping.SlightlyFaster("Player turn");
                     slowTyping.SlightlyFaster("Choose a move");
-                    for (int i = 0; i < aPlayer.Moves.Count; i++) {
-                        slowTyping.SlightlyFaster($"{i+1}.{aPlayer.Moves[i].Name}");
+                    for (int i = 0; i < aPlayer.Moves.Count; i++)
+                    {
+                        slowTyping.SlightlyFaster($"{i + 1}.{aPlayer.Moves[i].Name}");
                     }
                     Input = Console.ReadLine();
-                    if (Input == null) {
+                    if (Input == null)
+                    {
                         Console.WriteLine("Please do not enter null");
                         Task.Delay(10000).Wait();
                         PlayerTurn(aPlayer, aEnemy);
                         return;
                     }
-                    try {
-                       int Move = Int32.Parse(Input);
-                       Damage damage = new Damage();
+                    try
+                    {
+                        int Move = Int32.Parse(Input);
+                        Damage damage = new Damage();
                         if (Move > 0 && Move <= aPlayer.Moves.Count)
                         {
-                            damage.CalculateDamage(aPlayer.Moves[Move-1],aPlayer, aEnemy,true);
+                            damage.CalculateDamage(aPlayer.Moves[Move - 1], aPlayer, aEnemy, true);
                         }
                         else
                         {
@@ -77,7 +84,8 @@ namespace Tekst_beest_adventure
 
                         }
                     }
-                    catch(FormatException) {
+                    catch (FormatException)
+                    {
                         Console.WriteLine("Please enter a valid Number");
                         Task.Delay(1000).Wait();
                         PlayerTurn(aPlayer, aEnemy);
@@ -87,10 +95,11 @@ namespace Tekst_beest_adventure
                     Task.Delay(1000).Wait();
                     EnemyTurn(aPlayer, aEnemy);
                 }
-               
+
             }
         }
-        public void EnemyTurn(Player aPlayer,Enemy aEnemy) {
+        public void EnemyTurn(Player aPlayer, Enemy aEnemy)
+        {
             if (aEnemy.HP <= 0)
             {
                 slowTyping.SlightlyFaster("You Won the combat");
@@ -102,20 +111,18 @@ namespace Tekst_beest_adventure
                 BattleEnded = true;
                 aPlayer.LastBattleWon = true;
                 return;
-                
-
             }
-            else {
+            else
+            {
                 Console.Clear();
                 slowTyping.SlightlyFaster("Enemy turn");
-                slowTyping.SlightlyFaster($"Enemy used {aEnemy.MagicType} attack");
                 var rand = new Random();
                 int Move = rand.Next(0, aEnemy.Moves.Count);
-                Damage damage = new Damage();
-                damage.CalculateDamage(aEnemy.Moves[Move], aPlayer, aEnemy ,false);
+                slowTyping.SlightlyFaster($"Enemy used {aEnemy.Moves[Move].Name}");
+                damage.CalculateDamage(aEnemy.Moves[Move], aPlayer, aEnemy, false);
                 Task.Delay(1000).Wait();
                 PlayerTurn(aPlayer, aEnemy);
-                
+
             }
         }
     }

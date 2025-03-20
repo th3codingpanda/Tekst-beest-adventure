@@ -20,8 +20,8 @@ namespace Tekst_beest_adventure
             {
                 if (PlayerInventory[i].Name == item.Name)
                 {
-                PlayerInventory[i].Amount++;
-                slowTyping.SlightlyFaster($"Obtained item: {item.Name}");
+                    PlayerInventory[i].Amount++;
+                    slowTyping.SlightlyFaster($"Obtained item: {item.Name}");
                     Task.Delay(500).Wait();
                     HasItem = true;
                 }
@@ -43,7 +43,7 @@ namespace Tekst_beest_adventure
                     Task.Delay(500).Wait();
                     if (PlayerInventory[i].Amount <= 0)
                     {
-                        
+
                         PlayerInventory.Remove(PlayerInventory[i]);
                     }
                 }
@@ -56,15 +56,17 @@ namespace Tekst_beest_adventure
             }
             return PlayerInventory;
         }
-        public bool SpecificCheck(ItemList.TheItemList aItem) {
+        public bool SpecificCheck(ItemList.TheItemList aItem)
+        {
 
             foreach (Item PlayerItems in PlayerInventory)
             {
-                if (PlayerItems.Name.ToString() == aItem.ToString()) {
-                return true;
+                if (PlayerItems.Name.ToString() == aItem.ToString())
+                {
+                    return true;
                 }
             }
-                return false;
+            return false;
         }
 
     }

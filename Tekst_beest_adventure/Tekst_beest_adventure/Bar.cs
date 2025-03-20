@@ -9,10 +9,12 @@ namespace Tekst_beest_adventure
     internal class Bar
     {
 
-        public Bar(Player aPlayer) {
+        public Bar(Player aPlayer)
+        {
             SlowTyping slowTyping = SlowTyping.GetInstance();
             slowTyping.SlowlyType("You enter the bar");
-            while (true) {
+            while (true)
+            {
                 Console.Clear();
                 slowTyping.SlightlyFaster("What do you do?\n0 Grab food\n1Get drunk\n2Leave");
                 string? Input = Console.ReadLine();
@@ -26,25 +28,27 @@ namespace Tekst_beest_adventure
                         aPlayer.MaxHP += 20;
                         aPlayer.HP += 20;
                     }
-                    else {
+                    else
+                    {
                         slowTyping.SlightlyFaster("You're too full to eat any more");
                     }
                     Task.Delay(1000).Wait();
 
                 }
-                else if (Input == "1") 
+                else if (Input == "1")
                 {
-                    if (aPlayer.PlayerStatus != Status.Statoos.Drunk) {
+                    if (aPlayer.PlayerStatus != Status.Statoos.Drunk)
+                    {
                         aPlayer.MaxHP -= 5;
                     }
                     aPlayer.UpdateStatus(Status.Statoos.Drunk);
-                   
 
-                    
+
+
                 }
-                else if (Input == "2") 
+                else if (Input == "2")
                 {
-                return;
+                    return;
                 }
             }
         }

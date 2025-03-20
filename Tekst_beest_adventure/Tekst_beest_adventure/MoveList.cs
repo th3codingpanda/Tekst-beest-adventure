@@ -33,7 +33,8 @@ namespace Tekst_beest_adventure
         new List<Move>{Miku_Miku_Beam,Spirit_Bomb},
         new List<Move>{Tackle}
         };
-    public List<Move> CheckList(int aInt) {
+        public List<Move> CheckList(int aInt)
+        {
             return TheMoves[aInt];
 
         }

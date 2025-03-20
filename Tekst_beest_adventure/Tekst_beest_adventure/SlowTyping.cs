@@ -11,12 +11,15 @@ namespace Tekst_beest_adventure
     internal class SlowTyping
     {
         private static SlowTyping? instance;
-        private SlowTyping() {
-        
+        private SlowTyping()
+        {
+
         }
-        public static SlowTyping GetInstance() {
-            if (instance == null) {
-            instance = new SlowTyping();
+        public static SlowTyping GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new SlowTyping();
             }
             return instance;
         }
@@ -41,7 +44,8 @@ namespace Tekst_beest_adventure
             }
             return;
         }
-        public void SlightlyFaster(string WhatIsTyped) {
+        public void SlightlyFaster(string WhatIsTyped)
+        {
             Amount = 0;
             foreach (char c in WhatIsTyped)
             {

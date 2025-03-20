@@ -11,7 +11,7 @@ namespace Tekst_beest_adventure
 {
     public class Player
     {
-        
+
         public string? Name;
         public int Karma;
         public int MaxHP;
@@ -26,7 +26,7 @@ namespace Tekst_beest_adventure
         public bool LastBattleWon;
         public int Coins;
         private Inventory Inv = new Inventory();
-        public Player(string aName,int HPAmount, float XPAmount, int aMagicType,int aSecondMagicType)
+        public Player(string aName, int HPAmount, float XPAmount, int aMagicType, int aSecondMagicType)
         {
 
             Name = aName;
@@ -40,15 +40,15 @@ namespace Tekst_beest_adventure
             CurrentPath = 0;
             Coins = 0;
             PlayerStatus = Statoos.HUNGER;
-            
-                CheckNewMoves checkNewMoves = new CheckNewMoves();
-                checkNewMoves.CheckForNewMoves(this, MagicType);
-                if (MagicType != SecondMagicType)
-                {
-                    checkNewMoves.CheckForNewMoves(this, SecondMagicType);
-                }
-                checkNewMoves.CheckForNewMoves(this, Magic.NEUTRAL);
-            
+
+            CheckNewMoves checkNewMoves = new CheckNewMoves();
+            checkNewMoves.CheckForNewMoves(this, MagicType);
+            if (MagicType != SecondMagicType)
+            {
+                checkNewMoves.CheckForNewMoves(this, SecondMagicType);
+            }
+            checkNewMoves.CheckForNewMoves(this, Magic.NEUTRAL);
+
         }
 
         public void AddItem(Item aItem)
@@ -57,16 +57,18 @@ namespace Tekst_beest_adventure
         }
         public void RemoveItem(ItemList.TheItemList aItem, int aAmount)
         {
-            Inv.InventoryRemove(aItem,aAmount);
+            Inv.InventoryRemove(aItem, aAmount);
         }
-        public List<Item> ShowItems() {
-        return Inv.InventoryCheck();
+        public List<Item> ShowItems()
+        {
+            return Inv.InventoryCheck();
         }
-        public bool SearchItems(ItemList.TheItemList aItem) 
+        public bool SearchItems(ItemList.TheItemList aItem)
         {
             return Inv.SpecificCheck(aItem);
         }
-        public void UpdateStatus(Statoos aStatus) {
+        public void UpdateStatus(Statoos aStatus)
+        {
             if (PlayerStatus != Statoos.NOTHING)
             {
                 PlayerStatus = aStatus;
